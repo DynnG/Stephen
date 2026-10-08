@@ -338,6 +338,20 @@
       </div>
     </section>
 
+    <section id="faq" class="w-full py-14 sm:py-20 px-5 sm:px-6 border-t border-wood-border">
+      <div class="max-w-5xl mx-auto faq-layout">
+        <div><p class="font-mono text-xs tracking-widest uppercase text-wood-amber mb-3">Before we begin</p><h2 class="font-headline text-3xl sm:text-4xl font-semibold tracking-tight">A few helpful answers.</h2><p class="font-body text-sm text-wood-walnut/70 mt-4 leading-relaxed">Start with an idea. We can discuss the details together.</p></div>
+        <div class="faq-items">
+          <details><summary>What should I send for a quote?</summary><p>Share the type of piece, approximate dimensions, location, budget range, and preferred deadline. Room photos or reference images can help Stephen understand what you have in mind.</p></details>
+          <details><summary>Can I share photos of my space?</summary><p>Yes. Attach photos in your email draft or Messenger chat before sending. The portfolio does not upload or store your photos.</p></details>
+          <details><summary>How soon can my project start?</summary><p>Stephen is currently fully booked. You can still ask about a future opening. Confirm a start date and estimated completion time directly with him before making plans.</p></details>
+          <details><summary>What if I don’t have exact measurements?</summary><p>Send approximate dimensions and a photo to start the conversation. Ask Stephen how final measurements will be confirmed before any fabrication begins.</p></details>
+          <details><summary>Are delivery, installation, and deposits included?</summary><p>Confirm delivery or installation availability, any additional costs, deposit requirements, and payment terms directly with Stephen before agreeing to the project.</p></details>
+          <details><summary>Does requesting a quote book my project?</summary><p>No. This form prepares an inquiry in your chosen app. Review and send it there, then agree on the scope, price, and schedule with Stephen.</p></details>
+        </div>
+      </div>
+    </section>
+
     <!-- 8. CONTACT — COMMISSION READY (PROMINENT CTA) -->
     <section class="w-full py-14 px-4 sm:px-6 bg-wood-walnut text-wood-cream" id="contact">
       <div class="max-w-2xl mx-auto text-center mb-8">
@@ -350,6 +364,11 @@
         </p>
       </div>
 
+      <div class="availability-note max-w-md mx-auto mb-6">
+        <span class="availability-label">Planning a commission?</span>
+        <p id="commission-availability">Currently fully booked</p>
+        <small>Planning ahead? Get in touch to ask about the next available opening.</small>
+      </div>
       <div class="contact-methods max-w-md mx-auto mb-8">
         <a class="contact-method contact-method-call" href="tel:+639703652552">
           <span class="contact-method-icon material-symbols-outlined" aria-hidden="true">call</span>
@@ -387,6 +406,12 @@
           <label for="quote-details">Project details</label>
           <textarea class="quote-input" id="quote-details" name="details" aria-describedby="quote-details-help quote-details-count" maxlength="3000" rows="3" placeholder="Size, location, budget, deadline…"></textarea>
           <div class="quote-details-meta"><span id="quote-details-help">Maximum 3,000 characters</span><span id="quote-details-count">0 / 3,000</span></div>
+          <details class="quote-photo-guide">
+            <summary>Include room photos or inspiration</summary>
+            <p>Choose Gmail or your email app below, then attach your photos to the draft before sending. For Messenger, use the chat option above and attach them there. Photos cannot be attached to an SMS draft here.</p>
+            <p>A full view of your space, a close-up, and an inspiration image help explain your idea. Keep private documents and personal information out of the photos.</p>
+            <label class="photo-reminder"><input type="checkbox" name="photoReminder" value="yes"> <span>Add a reminder to my message to attach photos</span></label>
+          </details>
           <span id="delivery-label" class="block text-[13px] text-wood-amberLight mb-1.5">Send using</span>
           <details class="delivery-picker" id="quote-delivery">
             <summary aria-labelledby="delivery-label delivery-selected">

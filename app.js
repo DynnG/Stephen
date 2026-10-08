@@ -146,7 +146,7 @@
       if (!nameInput.reportValidity()) return;
       const projectType = fields.get('projectType');
       const subject = `Quote request: ${projectType}`;
-      const body = `Name: ${name}\nProject type: ${projectType}\n\n${fields.get('details').trim()}`;
+      const body = `Name: ${name}\nProject type: ${projectType}\n\n${fields.get('details').trim()}${fields.get('photoReminder') ? '\n\nPhoto reminder: attach room photos or reference images before sending.' : ''}`;
       const delivery = fields.get('delivery');
       if (delivery === 'gmail') {
         confirmGmail(`https://mail.google.com/mail/?view=cm&fs=1&to=villamorstephen903%40gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
