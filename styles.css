@@ -138,3 +138,15 @@
 .viewer-heading { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:12px; font-weight:600; }
 #project-viewer-image { width:100%; height: min(65dvh,700px); object-fit:contain; background:#ece7de; border-radius:12px; }
 .project-thumbnails button:focus-visible,.project-photo-controls button:focus-visible { outline:2px solid #9a7b56; outline-offset:2px; }
+
+.photo-flip { position:relative; display:block; width:100%; aspect-ratio:4/3; perspective:1000px; cursor:pointer; }
+.photo-flip-front,.photo-flip-back { position:absolute; inset:0; backface-visibility:hidden; transition:transform .55s ease; border-radius:16px; overflow:hidden; }
+.photo-flip-front { transform:rotateY(0); }
+.photo-flip-back { transform:rotateY(180deg); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; background:white; color:#2c221e; padding:14px; font-size:12px; }
+.photo-flip-back img { height:75%; width:auto; max-width:90%; object-fit:contain; }
+.photo-flip.is-flipped .photo-flip-front { transform:rotateY(-180deg); }
+.photo-flip.is-flipped .photo-flip-back { transform:rotateY(0); }
+.photo-flip .project-main { cursor:pointer; }
+.photo-enlarge { padding:10px 0; font-size:13px; font-weight:600; color:#735236; text-decoration:underline; text-underline-offset:3px; }
+.photo-flip:focus-visible { outline:3px solid #9a7b56; outline-offset:3px; }
+@media(prefers-reduced-motion:reduce) { .photo-flip-front,.photo-flip-back { transition:none; } }
