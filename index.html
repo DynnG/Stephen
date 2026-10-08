@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+  <title>Stephen Villamor — Furniture &amp; Cabinet Maker</title>
+  <meta name="description" content="Portfolio of Stephen Villamor — Furniture & Cabinet Maker based in Cebu, Philippines. Specializing in bespoke cabinetry, solid timber furniture, CAD & SketchUp design, and precision joinery." />
+
+  <!-- Fonts & Material Symbols -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..800;1,300..800&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind CSS CDN with Tailwind Configuration -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            wood: {
+              charcoal: '#1c1917',
+              walnut: '#2c221e',
+              rich: '#3e2723',
+              amber: '#9a7b56',
+              amberLight: '#d6b896',
+              sand: '#ece7de',
+              cream: '#faf8f5',
+              surface: '#f6f3ee',
+              border: '#e4ddd3'
+            }
+          },
+          fontFamily: {
+            headline: ["Space Grotesk", "sans-serif"],
+            body: ["Hanken Grotesk", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"]
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    @layer base {
+      html, body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #faf8f5;
+        color: #1c1917;
+        font-family: 'Hanken Grotesk', sans-serif;
+        overflow-x: hidden;
+      }
+      .pb-safe { padding-bottom: max(16px, env(safe-area-inset-bottom)); }
+      .pt-safe { padding-top: max(0px, env(safe-area-inset-top)); }
+    }
+    
+    /* Horizontal Carousel Smooth Snapping */
+    .snap-carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      scroll-behavior: smooth;
+    }
+    .snap-carousel::-webkit-scrollbar {
+      display: none;
+    }
+    .snap-item {
+      scroll-snap-align: center;
+      flex-shrink: 0;
+    }
+    
+    /* Subtle Artisan Grain Texture */
+    .timber-grain {
+      background-color: #f2eee8;
+      background-image: radial-gradient(#9a7b56 0.75px, transparent 0.75px), radial-gradient(#9a7b56 0.75px, #f2eee8 0.75px);
+      background-size: 30px 30px;
+      background-position: 0 0, 15px 15px;
+      opacity: 0.98;
+    }
+
+    /* Touch Target Optimization */
+    .touch-target {
+      min-height: 48px;
+      min-width: 48px;
+    }
+  </style>
+</head>
+<body class="bg-wood-cream text-wood-charcoal min-h-screen flex flex-col selection:bg-wood-amber selection:text-white">
+
+  <!-- 1. STICKY MOBILE & DESKTOP NAVIGATION -->
+  <header class="sticky top-0 z-50 pt-safe bg-wood-cream/95 backdrop-blur-md border-b border-wood-border/70 transition-all">
+    <div class="h-16 px-4 sm:px-6 max-w-5xl mx-auto flex items-center justify-between">
+      <!-- Artisan Monogram & Name -->
+      <a class="flex items-center gap-2.5 group" href="#">
+        <span class="w-9 h-9 rounded-sm bg-wood-walnut text-wood-amberLight flex items-center justify-center font-headline font-bold text-sm tracking-wider border border-wood-amber/30 group-hover:bg-wood-charcoal transition-colors shrink-0">
+          SV
+        </span>
+        <div class="flex flex-col">
+          <span class="font-headline font-semibold text-[14px] sm:text-[15px] tracking-tight text-wood-charcoal leading-none">Stephen Villamor</span>
+          <span class="font-mono text-[9px] sm:text-[10px] tracking-widest uppercase text-wood-amber font-medium mt-0.5">Woodcraft &amp; Joinery</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-1 sm:gap-2 text-[13px] font-headline font-medium">
+        <a class="px-2.5 py-1.5 rounded text-wood-walnut hover:text-wood-amber active:bg-wood-sand/50 transition-colors" href="#work">Work</a>
+        <a class="px-2.5 py-1.5 rounded text-wood-walnut/80 hover:text-wood-amber active:bg-wood-sand/50 transition-colors" href="#services">Services</a>
+        <a class="px-2.5 py-1.5 rounded text-wood-walnut/80 hover:text-wood-amber active:bg-wood-sand/50 transition-colors" href="#experience">Experience</a>
+        <a class="px-2.5 py-1.5 rounded text-wood-walnut/80 hover:text-wood-amber active:bg-wood-sand/50 transition-colors" href="#about">About</a>
+        <a class="ml-1 px-4 py-2 rounded-sm bg-wood-walnut text-wood-cream text-xs font-semibold tracking-wide hover:bg-wood-charcoal active:scale-95 transition-all shadow-sm" href="#contact">Contact</a>
+      </nav>
+
+      <!-- Mobile Fast Action & Menu Button -->
+      <div class="flex items-center gap-2 md:hidden">
+        <a class="px-3 py-1.5 rounded-sm bg-wood-walnut text-wood-cream text-xs font-semibold tracking-wide hover:bg-wood-charcoal active:scale-95 transition-all" href="#contact">
+          Contact
+        </a>
+        <button id="mobile-menu-btn" aria-label="Toggle Navigation Menu" class="w-10 h-10 flex items-center justify-center text-wood-walnut rounded hover:bg-wood-sand/50 active:scale-95 transition-all">
+          <span class="material-symbols-outlined text-2xl" id="menu-icon">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-wood-border/60 bg-wood-cream px-5 py-3 transition-all duration-200">
+      <nav class="flex flex-col gap-2 text-sm font-headline font-medium">
+        <a class="py-2 px-3 rounded hover:bg-wood-sand/50 text-wood-charcoal flex items-center justify-between" href="#work">
+          <span>Selected Work</span>
+          <span class="material-symbols-outlined text-xs text-wood-amber">arrow_forward</span>
+        </a>
+        <a class="py-2 px-3 rounded hover:bg-wood-sand/50 text-wood-charcoal flex items-center justify-between" href="#services">
+          <span>Craftsman Services</span>
+          <span class="material-symbols-outlined text-xs text-wood-amber">arrow_forward</span>
+        </a>
+        <a class="py-2 px-3 rounded hover:bg-wood-sand/50 text-wood-charcoal flex items-center justify-between" href="#capabilities">
+          <span>Toolkit &amp; Machines</span>
+          <span class="material-symbols-outlined text-xs text-wood-amber">arrow_forward</span>
+        </a>
+        <a class="py-2 px-3 rounded hover:bg-wood-sand/50 text-wood-charcoal flex items-center justify-between" href="#experience">
+          <span>Experience &amp; Practicum</span>
+          <span class="material-symbols-outlined text-xs text-wood-amber">arrow_forward</span>
+        </a>
+        <a class="py-2 px-3 rounded hover:bg-wood-sand/50 text-wood-charcoal flex items-center justify-between" href="#about">
+          <span>About Stephen</span>
+          <span class="material-symbols-outlined text-xs text-wood-amber">arrow_forward</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-1 w-full">
+    <!-- 2. HERO SECTION -->
+    <section class="w-full px-4 sm:px-6 pt-8 pb-12 max-w-4xl mx-auto flex flex-col items-center text-center">
+      <!-- Top Craft Pill -->
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-wood-sand/80 border border-wood-border text-wood-walnut font-mono text-[11px] font-medium tracking-wide mb-5">
+        <span class="w-1.5 h-1.5 rounded-full bg-wood-amber animate-pulse"></span>
+        <span>Cebu, PH • Bespoke Woodworking</span>
+      </div>
+
+      <!-- Workshop Profile Badge -->
+      <div class="relative w-28 h-32 sm:w-32 sm:h-36 rounded-md bg-wood-surface border border-wood-border p-2 shadow-sm flex flex-col items-center justify-between mb-5 group">
+        <div class="w-full flex justify-between items-center text-[9px] font-mono text-wood-walnut/50">
+          <span>SPEC // SV</span>
+          <span class="material-symbols-outlined text-[12px] text-wood-amber">carpenter</span>
+        </div>
+        <div class="w-full flex-1 my-1 rounded bg-wood-sand/40 border border-dashed border-wood-border flex flex-col items-center justify-center p-2 text-center overflow-hidden">
+          <span class="material-symbols-outlined text-wood-amber text-2xl mb-0.5">architecture</span>
+          <span class="font-mono text-[11px] font-semibold text-wood-walnut">TBF</span>
+          <span class="font-mono text-[9px] text-wood-walnut/60 uppercase tracking-tight">Profile Photo</span>
+        </div>
+        <div class="w-full text-center">
+          <span class="font-mono text-[9px] text-wood-walnut/70 uppercase tracking-widest">Workshop Master</span>
+        </div>
+      </div>
+
+      <!-- Hero Typography -->
+      <h1 class="font-headline text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-wood-charcoal mb-2 uppercase">
+        Stephen Villamor
+      </h1>
+      <p class="font-headline text-lg sm:text-xl font-medium text-wood-amber mb-3">
+        Furniture &amp; Cabinet Maker
+      </p>
+      <p class="font-body text-wood-walnut/80 text-sm sm:text-base max-w-md mx-auto leading-relaxed mb-7">
+        Custom furniture • Cabinet making • Precision woodworking. Built for enduring structural strength and clean tactile aesthetics.
+      </p>
+
+      <!-- High-Visibility Mobile Touch CTAs (min 48px touch targets) -->
+      <div class="w-full max-w-sm flex flex-col sm:flex-row gap-3 justify-center">
+        <a class="min-h-[48px] px-6 rounded-sm bg-wood-walnut text-wood-cream font-headline text-sm font-semibold tracking-wider uppercase flex items-center justify-center gap-2 shadow-sm hover:bg-wood-charcoal active:scale-[0.98] transition-all" href="#work">
+          <span>View My Work</span>
+          <span class="material-symbols-outlined text-lg">arrow_downward</span>
+        </a>
+        <a class="min-h-[48px] px-6 rounded-sm bg-transparent border border-wood-walnut/30 text-wood-walnut font-headline text-sm font-semibold tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-wood-sand/60 active:scale-[0.98] transition-all" href="#contact">
+          <span>Contact Me</span>
+          <span class="material-symbols-outlined text-lg text-wood-amber">chat_bubble_outline</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 3. SELECTED WORK (CENTERPIECE OF PORTFOLIO) -->
+    <section class="w-full py-12 bg-wood-surface/60 border-y border-wood-border" id="work">
+      <div class="px-4 sm:px-6 max-w-5xl mx-auto mb-6">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-1.5 text-wood-amber font-mono text-[11px] font-semibold uppercase tracking-wider mb-1">
+              <span class="material-symbols-outlined text-[15px]">table_restaurant</span>
+              <span>Portfolio Gallery</span>
+            </div>
+            <h2 class="font-headline text-2xl sm:text-3xl font-bold tracking-tight text-wood-charcoal">
+              Selected Work
+            </h2>
+          </div>
+          <div class="flex items-center justify-between sm:justify-end gap-3">
+            <p class="font-body text-xs sm:text-sm text-wood-walnut/70 max-w-xs">
+              Crafted for function, precision, and longevity. Swipe horizontally to inspect works.
+            </p>
+            <!-- Carousel Desktop Navigation Controls -->
+            <div class="hidden sm:flex items-center gap-1.5 shrink-0">
+              <button id="carousel-prev" aria-label="Previous project" class="w-9 h-9 rounded-sm bg-wood-cream border border-wood-border text-wood-walnut flex items-center justify-center hover:bg-wood-sand transition-colors active:scale-95 shadow-sm">
+                <span class="material-symbols-outlined text-lg">chevron_left</span>
+              </button>
+              <button id="carousel-next" aria-label="Next project" class="w-9 h-9 rounded-sm bg-wood-cream border border-wood-border text-wood-walnut flex items-center justify-center hover:bg-wood-sand transition-colors active:scale-95 shadow-sm">
+                <span class="material-symbols-outlined text-lg">chevron_right</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Horizontal Swipeable Carousel (Snap Scrolling) -->
+      <div id="project-carousel" class="snap-carousel px-4 sm:px-6 gap-4 pb-4 max-w-5xl mx-auto">
+        <!-- Slide 1: Custom Cabinetry -->
+        <article class="snap-item w-[84vw] sm:w-[380px] bg-wood-cream rounded-md border border-wood-border p-4 shadow-sm flex flex-col justify-between" data-index="0">
+          <div>
+            <!-- Large Image Slot / Placeholder -->
+            <div class="relative w-full aspect-[4/3] rounded bg-wood-sand/60 border border-wood-border/80 flex flex-col items-center justify-center text-center p-4 overflow-hidden mb-3">
+              <!-- Joinery Line Draft Background SVG -->
+              <svg class="absolute inset-0 w-full h-full opacity-15 text-wood-walnut pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <pattern height="20" id="grid-artisan" patternunits="userSpaceOnUse" width="20">
+                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="currentColor" stroke-width="0.75"></path>
+                  </pattern>
+                </defs>
+                <rect fill="url(#grid-artisan)" height="100%" width="100%"></rect>
+              </svg>
+              <div class="w-12 h-12 rounded-full bg-wood-cream/80 border border-wood-amber/30 flex items-center justify-center text-wood-amber mb-2 relative z-10 shadow-sm">
+                <span class="material-symbols-outlined text-2xl">shelves</span>
+              </div>
+              <p class="font-headline font-semibold text-xs tracking-wider uppercase text-wood-charcoal relative z-10">Project Photo Coming Soon</p>
+              <span class="font-mono text-[10px] text-wood-walnut/60 mt-0.5 relative z-10">DWG // 01 • Custom Carcass Fit</span>
+            </div>
+            <!-- Multi-Photo Pagination Dots Indicator -->
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-mono text-[11px] font-semibold text-wood-amber">PROJECT 01</span>
+              <div class="flex items-center gap-1.5 text-xs text-wood-walnut/60 select-none">
+                <span class="w-2 h-2 rounded-full bg-wood-amber"></span>
+                <span class="w-2 h-2 rounded-full bg-wood-border"></span>
+                <span class="w-2 h-2 rounded-full bg-wood-border"></span>
+                <span class="w-2 h-2 rounded-full bg-wood-border"></span>
+              </div>
+            </div>
+            <h3 class="font-headline text-lg font-bold text-wood-charcoal">Custom Cabinetry</h3>
+            <p class="font-body text-xs sm:text-sm text-wood-walnut/80 mt-1 leading-snug">
+              Custom Cabinet — Built for practical storage, precise carcass alignment, and everyday utility.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-wood-border/60 flex items-center justify-between text-[11px] font-mono text-wood-walnut/70">
+            <span>CAD &amp; SKETCHUP</span>
+            <span>CABINETRY</span>
+          </div>
+        </article>
+
+        <!-- Slide 2: Solid Timber Dining Table -->
+        <article class="snap-item w-[84vw] sm:w-[380px] bg-wood-cream rounded-md border border-wood-border p-4 shadow-sm flex flex-col justify-between" data-index="1">
+          <div>
+            <div class="relative w-full aspect-[4/3] rounded bg-wood-sand/60 border border-wood-border/80 flex flex-col items-center justify-center text-center p-4 overflow-hidden mb-3">
+              <svg class="absolute inset-0 w-full h-full opacity-15 text-wood-walnut pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+                <rect fill="url(#grid-artisan)" height="100%" width="100%"></rect>
+              </svg>
+              <div class="w-12 h-12 rounded-full bg-wood-cream/80 border border-wood-amber/30 flex items-center justify-center text-wood-amber mb-2 relative z-10 shadow-sm">
+                <span class="material-symbols-outlined text-2xl">table_restaurant</span>
+              </div>
+              <p class="font-headline font-semibold text-xs tracking-wider uppercase text-wood-charcoal relative z-10">Project Photo Coming Soon</p>
+              <span class="font-mono text-[10px] text-wood-walnut/60 mt-0.5 relative z-10">DWG // 02 • Mortise &amp; Tenon</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-mono text-[11px] font-semibold text-wood-amber">PROJECT 02</span>
+              <div class="flex items-center gap-1.5 text-xs text-wood-walnut/60 select-none">
+                <span class="w-2 h-2 rounded-full bg-wood-border"></span>
+                <span class="w-2 h-2 rounded-full bg-wood-amber"></span>
+                <span class="w-2 h-2 rounded-full bg-wood-border"></span>
+                <span class="w-2 h-2 rounded-full bg-wood-border"></span>
+              </div>
+            </div>
+            <h3 class="font-headline text-lg font-bold text-wood-charcoal">Solid Timber Dining</h3>
+            <p class="font-body text-xs sm:text-sm text-wood-walnut/80 mt-1 leading-snug">
+              Solid Timber Dining Table — Handcrafted joinery, solid frame balance, and durable natural oil finish.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-wood-border/60 flex items-center justify-between text-[11px] font-mono text-wood-walnut/70">
+            <span>TIMBER JOINERY</span>
+            <span>FURNITURE</span>
+          </div>
+        </article>
+
+        <!-- Slide 3: Modular Storage Unit -->
+        <article class="snap-item w-[84vw] sm:w-[380px] bg-wood-cream rounded-md border border-wood-border p-4 shadow-sm flex flex-col justify-between" data-index="2">
+          <div>
+            <div class="relative w-full aspect-[4/3] rounded bg-wood-sand/60 border border-wood-border/80 flex flex-col items-center justify-center text-center p-4 overflow-hidden mb-3">
+              <svg class="absolute inset-0 w-full h-full opacity-15 text-wood-walnut pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+                <rect fill="url(#grid-artisan)" height="100%" width="100%"></rect>
+              </svg>
+              <div class="w-12 h-12 rounded-full bg-wood-cream/80 border border-wood-amber/30 flex items-center justify-center text-wood-amber mb-2 relative z-10 shadow-sm">
+                <span class="material-symbols-outlined text-2xl">countertops</span>
+              </div>
+              <p class="font-headline font-semibold text-xs tracking-wider uppercase text-wood-charcoal relative z-10">Project Photo Coming Soon</p>
+              <span class="font-mono text-[10px] text-wood-walnut/60 mt-0.5 relative z-10">DWG // 03 • Modular Casework</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-mono text-[11px] font-semibold text-wood-amber">PROJECT 03</span>
+              <div class="flex items-center gap-1.5 text-xs text-wood-walnut/60 select-none">
+                <span class="w-2 h-2 rounded-full bg-wood-border"></span>
+                <span class="w-2 h-2 rounded-full bg-wood-border"></span>
+                <span class="w-2 h-2 rounded-full bg-wood-amber"></span>
+                <span class="w-2 h-2 rounded-full bg-wood-border"></span>
+              </div>
+            </div>
+            <h3 class="font-headline text-lg font-bold text-wood-charcoal">Modular Storage Unit</h3>
+            <p class="font-body text-xs sm:text-sm text-wood-walnut/80 mt-1 leading-snug">
+              Modular Storage Unit — Precision carcass build, flush fitment, and clean edge detailing.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-wood-border/60 flex items-center justify-between text-[11px] font-mono text-wood-walnut/70">
+            <span>MODULAR CASEWORK</span>
+            <span>STORAGE</span>
+          </div>
+        </article>
+
+        <!-- Slide 4: Workshop Utility Bench -->
+        <article class="snap-item w-[84vw] sm:w-[380px] bg-wood-cream rounded-md border border-wood-border p-4 shadow-sm flex flex-col justify-between" data-index="3">
+          <div>
+            <div class="relative w-full aspect-[4/3] rounded bg-wood-sand/60 border border-wood-border/80 flex flex-col items-center justify-center text-center p-4 overflow-hidden mb-3">
+              <svg class="absolute inset-0 w-full h-full opacity-15 text-wood-walnut pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+                <rect fill="url(#grid-artisan)" height="100%" width="100%"></rect>
+              </svg>
+              <div class="w-12 h-12 rounded-full bg-wood-cream/80 border border-wood-amber/30 flex items-center justify-center text-wood-amber mb-2 relative z-10 shadow-sm">
+                <span class="material-symbols-outlined text-2xl">build</span>
+              </div>
+              <p class="font-headline font-semibold text-xs tracking-wider uppercase text-wood-charcoal relative z-10">Project Photo Coming Soon</p>
+              <span class="font-mono text-[10px] text-wood-walnut/60 mt-0.5 relative z-10">DWG // 04 • Heavy Timber Frame</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-mono text-[11px] font-semibold text-wood-amber">PROJECT 04</span>
+              <div class="flex items-center gap-1.5 text-xs text-wood-walnut/60 select-none">
+                <span class="w-2 h-2 rounded-full bg-wood-border"></span>
+                <span class="w-2 h-2 rounded-full bg-wood-border"></span>
+                <span class="w-2 h-2 rounded-full bg-wood-border"></span>
+                <span class="w-2 h-2 rounded-full bg-wood-amber"></span>
+              </div>
+            </div>
+            <h3 class="font-headline text-lg font-bold text-wood-charcoal">Workshop Utility Bench</h3>
+            <p class="font-body text-xs sm:text-sm text-wood-walnut/80 mt-1 leading-snug">
+              Heavy-Duty Workshop Bench — Engineered timber construction for lasting stability and heavy load-bearing.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-wood-border/60 flex items-center justify-between text-[11px] font-mono text-wood-walnut/70">
+            <span>HEAVY TIMBER</span>
+            <span>FIXTURE</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- Swipe / Navigation indicator hint for mobile screens -->
+      <div class="flex items-center justify-center gap-1.5 text-[11px] font-mono text-wood-walnut/60 mt-3 px-4 text-center">
+        <span class="material-symbols-outlined text-[15px] text-wood-amber">swipe</span>
+        <span>Swipe horizontally or use arrows to view all works</span>
+      </div>
+    </section>
+
+    <!-- 4. WHAT I DO (SERVICES) -->
+    <section class="w-full py-12 px-4 sm:px-6 max-w-5xl mx-auto" id="services">
+      <div class="text-center max-w-md mx-auto mb-8">
+        <div class="inline-flex items-center gap-1 text-wood-amber font-mono text-[11px] font-semibold uppercase tracking-wider mb-1">
+          <span class="material-symbols-outlined text-[15px]">handyman</span>
+          <span>Craftsman Services</span>
+        </div>
+        <h2 class="font-headline text-2xl sm:text-3xl font-bold tracking-tight text-wood-charcoal">
+          What I Do
+        </h2>
+        <p class="font-body text-xs sm:text-sm text-wood-walnut/75 mt-1">
+          Tailored commissions and technical woodworking delivered with artisan rigor.
+        </p>
+      </div>
+
+      <!-- 4 Clean Capability Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- Card 1 -->
+        <div class="p-5 rounded-md bg-wood-cream border border-wood-border/80 shadow-sm flex items-start gap-4 hover:border-wood-amber/50 transition-colors">
+          <div class="w-12 h-12 rounded bg-wood-sand/60 text-wood-amber border border-wood-amber/20 flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-2xl">kitchen</span>
+          </div>
+          <div>
+            <h3 class="font-headline text-base font-bold text-wood-charcoal uppercase tracking-wide">Cabinet Making</h3>
+            <p class="font-body text-xs sm:text-sm text-wood-walnut/80 mt-1 leading-relaxed">
+              Custom cabinets and practical storage solutions engineered for architectural fit and durable utility.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="p-5 rounded-md bg-wood-cream border border-wood-border/80 shadow-sm flex items-start gap-4 hover:border-wood-amber/50 transition-colors">
+          <div class="w-12 h-12 rounded bg-wood-sand/60 text-wood-amber border border-wood-amber/20 flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-2xl">chair</span>
+          </div>
+          <div>
+            <h3 class="font-headline text-base font-bold text-wood-charcoal uppercase tracking-wide">Furniture Making</h3>
+            <p class="font-body text-xs sm:text-sm text-wood-walnut/80 mt-1 leading-relaxed">
+              Bespoke furniture construction and woodworking crafted from select solid woods and fine veneers.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="p-5 rounded-md bg-wood-cream border border-wood-border/80 shadow-sm flex items-start gap-4 hover:border-wood-amber/50 transition-colors">
+          <div class="w-12 h-12 rounded bg-wood-sand/60 text-wood-amber border border-wood-amber/20 flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-2xl">precision_manufacturing</span>
+          </div>
+          <div>
+            <h3 class="font-headline text-base font-bold text-wood-charcoal uppercase tracking-wide">Machine Operation</h3>
+            <p class="font-body text-xs sm:text-sm text-wood-walnut/80 mt-1 leading-relaxed">
+              Experience working with professional woodworking machinery, milling setups, and dimensioning stations.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="p-5 rounded-md bg-wood-cream border border-wood-border/80 shadow-sm flex items-start gap-4 hover:border-wood-amber/50 transition-colors">
+          <div class="w-12 h-12 rounded bg-wood-sand/60 text-wood-amber border border-wood-amber/20 flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-2xl">carpenter</span>
+          </div>
+          <div>
+            <h3 class="font-headline text-base font-bold text-wood-charcoal uppercase tracking-wide">Custom Woodwork</h3>
+            <p class="font-body text-xs sm:text-sm text-wood-walnut/80 mt-1 leading-relaxed">
+              Hands-on woodworking and custom fabrication based on client architectural specs and custom requirements.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. CAPABILITIES (COMPACT ACCORDIONS / HORIZONTAL PILLS) -->
+    <section class="w-full py-10 px-4 sm:px-6 bg-wood-surface/60 border-t border-wood-border" id="capabilities">
+      <div class="max-w-4xl mx-auto">
+        <div class="flex items-center justify-between mb-5">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-wood-amber text-[20px]">construction</span>
+            <h2 class="font-headline text-lg sm:text-xl font-bold tracking-tight text-wood-charcoal">
+              Capabilities &amp; Workshop Toolkit
+            </h2>
+          </div>
+          <span class="font-mono text-[10px] text-wood-walnut/60 uppercase">Verified Stations</span>
+        </div>
+
+        <!-- Horizontal Tool Pills & Groups (Clean mobile-first layout) -->
+        <div class="space-y-4">
+          <!-- Machinery Group -->
+          <div class="bg-wood-cream p-4 rounded-md border border-wood-border shadow-xs">
+            <div class="flex items-center gap-2 mb-2.5">
+              <span class="material-symbols-outlined text-wood-amber text-sm">settings_suggest</span>
+              <span class="font-headline text-xs font-bold uppercase tracking-wider text-wood-charcoal">Woodworking Machines (9)</span>
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-sm bg-wood-sand/50 text-wood-walnut text-xs font-mono font-medium border border-wood-border/50">Circular Saw</span>
+              <span class="px-2.5 py-1 rounded-sm bg-wood-sand/50 text-wood-walnut text-xs font-mono font-medium border border-wood-border/50">Table Saw</span>
+              <span class="px-2.5 py-1 rounded-sm bg-wood-sand/50 text-wood-walnut text-xs font-mono font-medium border border-wood-border/50">Radial Arm Saw</span>
+              <span class="px-2.5 py-1 rounded-sm bg-wood-sand/50 text-wood-walnut text-xs font-mono font-medium border border-wood-border/50">Miter Saw</span>
+              <span class="px-2.5 py-1 rounded-sm bg-wood-sand/50 text-wood-walnut text-xs font-mono font-medium border border-wood-border/50">Panel Saw</span>
+              <span class="px-2.5 py-1 rounded-sm bg-wood-sand/50 text-wood-walnut text-xs font-mono font-medium border border-wood-border/50">Band Saw</span>
+              <span class="px-2.5 py-1 rounded-sm bg-wood-sand/50 text-wood-walnut text-xs font-mono font-medium border border-wood-border/50">Planer</span>
+              <span class="px-2.5 py-1 rounded-sm bg-wood-sand/50 text-wood-walnut text-xs font-mono font-medium border border-wood-border/50">Jointer Planer</span>
+              <span class="px-2.5 py-1 rounded-sm bg-wood-sand/50 text-wood-walnut text-xs font-mono font-medium border border-wood-border/50">Overhead Router</span>
+            </div>
+          </div>
+
+          <!-- Power Tools Group -->
+          <div class="bg-wood-cream p-4 rounded-md border border-wood-border shadow-xs">
+            <div class="flex items-center gap-2 mb-2.5">
+              <span class="material-symbols-outlined text-wood-amber text-sm">hardware</span>
+              <span class="font-headline text-xs font-bold uppercase tracking-wider text-wood-charcoal">Power Tools (7)</span>
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-sm bg-wood-sand/50 text-wood-walnut text-xs font-mono font-medium border border-wood-border/50">Portable Drill Gun</span>
+              <span class="px-2.5 py-1 rounded-sm bg-wood-sand/50 text-wood-walnut text-xs font-mono font-medium border border-wood-border/50">Trimmer</span>
+              <span class="px-2.5 py-1 rounded-sm bg-wood-sand/50 text-wood-walnut text-xs font-mono font-medium border border-wood-border/50">Portable Router</span>
+              <span class="px-2.5 py-1 rounded-sm bg-wood-sand/50 text-wood-walnut text-xs font-mono font-medium border border-wood-border/50">Jigsaw</span>
+              <span class="px-2.5 py-1 rounded-sm bg-wood-sand/50 text-wood-walnut text-xs font-mono font-medium border border-wood-border/50">Palm Sander</span>
+              <span class="px-2.5 py-1 rounded-sm bg-wood-sand/50 text-wood-walnut text-xs font-mono font-medium border border-wood-border/50">Grinder</span>
+              <span class="px-2.5 py-1 rounded-sm bg-wood-sand/50 text-wood-walnut text-xs font-mono font-medium border border-wood-border/50">Nail Gun</span>
+            </div>
+          </div>
+
+          <!-- Software Group -->
+          <div class="bg-wood-cream p-4 rounded-md border border-wood-border shadow-xs">
+            <div class="flex items-center gap-2 mb-2.5">
+              <span class="material-symbols-outlined text-wood-amber text-sm">draw</span>
+              <span class="font-headline text-xs font-bold uppercase tracking-wider text-wood-charcoal">Drafting &amp; 3D Software</span>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1.5 rounded-sm bg-wood-walnut text-wood-cream text-xs font-mono font-medium flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-xs text-wood-amberLight">polyline</span> CAD
+              </span>
+              <span class="px-3 py-1.5 rounded-sm bg-wood-walnut text-wood-cream text-xs font-mono font-medium flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-xs text-wood-amberLight">view_in_ar</span> SketchUp
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. EXPERIENCE, PRACTICUM & CURRENT WORKPLACE -->
+    <section class="w-full py-12 px-4 sm:px-6 max-w-4xl mx-auto" id="experience">
+      <div class="mb-6">
+        <div class="flex items-center gap-1.5 text-wood-amber font-mono text-[11px] font-semibold uppercase tracking-wider mb-1">
+          <span class="material-symbols-outlined text-[15px]">verified</span>
+          <span>Industrial Track Record</span>
+        </div>
+        <h2 class="font-headline text-2xl sm:text-3xl font-bold tracking-tight text-wood-charcoal">
+          Experience &amp; Practicum
+        </h2>
+      </div>
+
+      <!-- Current Workplace Card (Orel Banilad) -->
+      <div class="bg-wood-cream rounded-md border-2 border-wood-amber/40 p-5 mb-5 shadow-sm relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-24 h-24 bg-wood-amber/5 rounded-full -mr-8 -mt-8 pointer-events-none"></div>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-wood-border/70">
+          <div>
+            <div class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-wood-amber text-white font-mono text-[10px] font-semibold uppercase tracking-wider mb-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+              Current Workplace
+            </div>
+            <h3 class="font-headline text-xl font-bold text-wood-charcoal">Orel Banilad</h3>
+            <p class="font-body text-xs sm:text-sm text-wood-walnut/80 flex items-center gap-1 mt-0.5">
+              <span class="material-symbols-outlined text-wood-amber text-sm">location_on</span>
+              Banilad, Cebu
+            </p>
+          </div>
+          <div class="sm:text-right bg-wood-sand/50 p-2.5 rounded border border-wood-border/60">
+            <span class="block font-mono text-[10px] uppercase text-wood-walnut/60">Status</span>
+            <span class="font-headline text-base sm:text-lg font-bold text-wood-charcoal tracking-tight flex items-center gap-1 sm:justify-end">
+              <span class="w-2 h-2 rounded-full bg-emerald-600"></span> Active Artisan
+            </span>
+          </div>
+        </div>
+        <p class="font-body text-xs sm:text-sm text-wood-walnut/80 mt-3 leading-relaxed">
+          Engaged in custom woodworking, cabinet fabrication, and high-precision assembly.
+        </p>
+      </div>
+
+      <!-- 1,800-Hour Industry Practicum Card (Among Balay Furniture) -->
+      <div class="bg-wood-cream rounded-md border border-wood-border p-5 mb-5 shadow-sm">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-wood-border/70">
+          <div>
+            <div class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-wood-amber/15 text-wood-amber font-mono text-[10px] font-semibold uppercase tracking-wider mb-1">
+              Industrial Internship
+            </div>
+            <h3 class="font-headline text-xl font-bold text-wood-charcoal">Among Balay Furniture</h3>
+            <p class="font-body text-xs sm:text-sm text-wood-walnut/80 flex items-center gap-1 mt-0.5">
+              <span class="material-symbols-outlined text-wood-amber text-sm">location_on</span>
+              Pagsabungan, Mandaue City
+            </p>
+          </div>
+          <div class="sm:text-right bg-wood-sand/50 p-2.5 rounded border border-wood-border/60">
+            <span class="block font-mono text-[10px] uppercase text-wood-walnut/60">Total Duration</span>
+            <span class="font-headline text-xl font-bold text-wood-charcoal tracking-tight">1,800 Hours</span>
+          </div>
+        </div>
+
+        <!-- Practicum Workshop Photo Placeholder -->
+        <div class="mt-4 p-4 rounded bg-wood-surface border border-dashed border-wood-border flex items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded bg-wood-sand flex items-center justify-center text-wood-amber shrink-0">
+              <span class="material-symbols-outlined text-xl">factory</span>
+            </div>
+            <div>
+              <p class="font-headline text-xs sm:text-sm font-semibold text-wood-charcoal">Among Balay Workshop Documentation</p>
+              <p class="font-mono text-[10px] text-wood-walnut/70">Assembly floor &amp; machine photos coming soon</p>
+            </div>
+          </div>
+          <span class="px-2 py-1 rounded bg-wood-cream border border-wood-border text-wood-amber font-mono text-[10px] uppercase font-semibold shrink-0">1,800 HRS VERIFIED</span>
+        </div>
+      </div>
+
+      <!-- Hands-on Experience Roles as Compact Chips -->
+      <div class="bg-wood-surface/70 p-4 rounded-md border border-wood-border">
+        <span class="block font-headline text-xs font-bold uppercase tracking-wider text-wood-charcoal mb-2.5">
+          Hands-on Roles Undertaken
+        </span>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1.5 rounded bg-wood-cream border border-wood-border text-wood-walnut text-xs font-medium">Cabinet Maker</span>
+          <span class="px-3 py-1.5 rounded bg-wood-cream border border-wood-border text-wood-walnut text-xs font-medium">Furniture Maker</span>
+          <span class="px-3 py-1.5 rounded bg-wood-cream border border-wood-border text-wood-walnut text-xs font-medium">Machine Operator</span>
+          <span class="px-3 py-1.5 rounded bg-wood-cream border border-wood-border text-wood-walnut text-xs font-medium">Sales Clerk</span>
+          <span class="px-3 py-1.5 rounded bg-wood-cream border border-wood-border text-wood-walnut text-xs font-medium">Wholesaler</span>
+          <span class="px-3 py-1.5 rounded bg-wood-cream border border-wood-border text-wood-walnut text-xs font-medium">Time Keeper</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. ABOUT (CONCISE) -->
+    <section class="w-full py-10 px-4 sm:px-6 bg-wood-surface/60 border-t border-wood-border" id="about">
+      <div class="max-w-3xl mx-auto">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="material-symbols-outlined text-wood-amber text-[20px]">person</span>
+          <h2 class="font-headline text-xl sm:text-2xl font-bold tracking-tight text-wood-charcoal">
+            About Stephen
+          </h2>
+        </div>
+
+        <!-- Short 2-sentence note -->
+        <p class="font-body text-sm sm:text-base text-wood-walnut leading-relaxed mb-4">
+          Graduate of Bachelor of Information Technology, major in Furniture Design and Cabinet Making, with hands-on experience in furniture making, cabinet making, woodworking machinery, and practical workshop operations.
+        </p>
+
+        <!-- Compact credential badge -->
+        <div class="p-3.5 rounded bg-wood-cream border border-wood-border flex items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-wood-amber text-xl">school</span>
+            <div>
+              <span class="block font-headline text-xs sm:text-sm font-semibold text-wood-charcoal">Bachelor of Information Technology</span>
+              <span class="block font-body text-xs text-wood-walnut/75">Major in Furniture Design &amp; Cabinet Making</span>
+            </div>
+          </div>
+          <span class="px-2.5 py-1 rounded bg-wood-walnut text-wood-cream font-mono text-[10px] uppercase font-semibold shrink-0">Graduate</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. CONTACT — COMMISSION READY (PROMINENT CTA) -->
+    <section class="w-full py-14 px-4 sm:px-6 bg-wood-walnut text-wood-cream" id="contact">
+      <div class="max-w-2xl mx-auto text-center mb-8">
+        <span class="inline-block font-mono text-[11px] font-semibold text-wood-amberLight uppercase tracking-widest mb-1.5">Direct Inquiry</span>
+        <h2 class="font-headline text-3xl sm:text-4xl font-bold tracking-tight text-white mb-2">
+          Have a project in mind?
+        </h2>
+        <p class="font-body text-sm sm:text-base text-wood-cream/80 max-w-md mx-auto">
+          Let's talk about your furniture or cabinet-making project. Reach out directly for fast response.
+        </p>
+      </div>
+
+      <!-- 3 Large Tap-Friendly Touch Buttons (Min 52px height) -->
+      <div class="max-w-md mx-auto flex flex-col gap-3 mb-8">
+        <!-- Call Button -->
+        <a class="min-h-[52px] px-5 rounded bg-wood-amber text-white font-headline text-sm font-semibold tracking-wider uppercase flex items-center justify-between hover:bg-wood-amber/90 active:scale-[0.99] transition-all shadow-sm" href="tel:09703652552">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-xl">call</span>
+            <span>Call: 09703652552</span>
+          </div>
+          <span class="font-mono text-xs opacity-90">TAP TO DIAL</span>
+        </a>
+
+        <!-- Email Button -->
+        <a class="min-h-[52px] px-5 rounded bg-wood-charcoal text-white font-headline text-sm font-semibold tracking-wider uppercase flex items-center justify-between border border-white/10 hover:border-wood-amber active:scale-[0.99] transition-all shadow-sm" href="mailto:villamorstephen903@gmail.com">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-xl text-wood-amberLight">mail</span>
+            <span class="truncate max-w-[190px] sm:max-w-none text-left">Email Stephen</span>
+          </div>
+          <span class="font-mono text-xs text-wood-amberLight">SEND MESSAGE</span>
+        </a>
+
+        <!-- Facebook Button -->
+        <a class="min-h-[52px] px-5 rounded bg-wood-charcoal text-white font-headline text-sm font-semibold tracking-wider uppercase flex items-center justify-between border border-white/10 hover:border-wood-amber active:scale-[0.99] transition-all shadow-sm" href="https://www.facebook.com/stephen.villamor.811577" rel="noopener noreferrer" target="_blank">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-xl text-wood-amberLight">share</span>
+            <span>Facebook Messenger</span>
+          </div>
+          <span class="material-symbols-outlined text-lg">open_in_new</span>
+        </a>
+      </div>
+
+      <!-- Clean Directory Details Listing -->
+      <div class="max-w-md mx-auto pt-6 border-t border-white/10 space-y-2.5 font-mono text-xs text-wood-cream/75">
+        <div class="flex justify-between items-center">
+          <span class="text-wood-amberLight">Phone:</span>
+          <a href="tel:09703652552" class="text-white font-medium hover:text-wood-amberLight transition-colors">09703652552</a>
+        </div>
+        <div class="flex justify-between items-center">
+          <span class="text-wood-amberLight">Email:</span>
+          <a href="mailto:villamorstephen903@gmail.com" class="text-white truncate ml-2 hover:text-wood-amberLight transition-colors">villamorstephen903@gmail.com</a>
+        </div>
+        <div class="flex justify-between items-center">
+          <span class="text-wood-amberLight">Facebook:</span>
+          <a href="https://www.facebook.com/stephen.villamor.811577" target="_blank" rel="noopener noreferrer" class="text-white hover:text-wood-amberLight transition-colors">Stephen Villamor</a>
+        </div>
+        <div class="flex justify-between items-center">
+          <span class="text-wood-amberLight">LinkedIn:</span>
+          <span class="text-white font-medium">Stephen Villamor</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 9. MINIMALIST ARTISAN FOOTER -->
+  <footer class="w-full bg-wood-charcoal text-wood-cream/60 py-8 px-4 sm:px-6 border-t border-white/5">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      <div class="flex items-center gap-2">
+        <span class="w-6 h-6 rounded-sm bg-wood-amber text-white font-headline text-xs font-bold flex items-center justify-center">
+          SV
+        </span>
+        <span class="font-headline text-xs font-medium text-wood-cream tracking-wide">
+          Stephen Villamor — Woodcraft &amp; Joinery
+        </span>
+      </div>
+      <div class="flex items-center gap-4 text-xs font-mono text-wood-cream/50">
+        <span>© 2026 Stephen Villamor. Handcrafted in Cebu, PH.</span>
+        <a href="#" class="text-wood-amberLight hover:underline ml-2" aria-label="Back to top">↑ Top</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive Carousel & Mobile Menu Logic -->
+  <script>
+    // Mobile navigation toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.toggle('hidden');
+        menuIcon.textContent = isHidden ? 'menu' : 'close';
+      });
+
+      // Close mobile menu when clicking a link
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          menuIcon.textContent = 'menu';
+        });
+      });
+    }
+
+    // Carousel desktop & keyboard navigation
+    const carousel = document.getElementById('project-carousel');
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+
+    if (carousel && prevBtn && nextBtn) {
+      const getScrollStep = () => {
+        const firstItem = carousel.querySelector('.snap-item');
+        return firstItem ? firstItem.offsetWidth + 16 : 380;
+      };
+
+      prevBtn.addEventListener('click', () => {
+        carousel.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
+      });
+
+      nextBtn.addEventListener('click', () => {
+        carousel.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+      });
+    }
+  </script>
+</body>
+</html>
