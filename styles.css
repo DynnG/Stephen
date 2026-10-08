@@ -235,3 +235,8 @@ body:has(dialog[open]) { overflow:hidden; }
 @media(max-width:380px) { .design-tools-list li { flex-direction:column; align-items:flex-start; } }
 
 footer { padding-bottom:32px; }
+
+.academic-honor { display:table; margin-top:16px; padding:8px 14px; background:#2c221e; color:#faf8f5; border-radius:8px; font-size:14px; font-weight:600; }
+.qualifications-link { display:inline-flex; align-items:center; gap:10px; min-height:44px; margin-top:12px; font-size:14px; font-weight:600; color:#2c221e; text-decoration:underline; text-underline-offset:4px; }
+.qualifications-format { font-size:10px; padding:3px 6px; background:#ece7de; border-radius:4px; text-decoration:none; }
+.qualifications-link:focus-visible { outline:2px solid #9a7b56; outline-offset:4px; }
