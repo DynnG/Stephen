@@ -129,6 +129,8 @@
     footer { padding-bottom: 96px !important; }
     @media (prefers-reduced-motion: reduce) { .back-to-top { transition: none; } }
 
+    #contact-confirmation { width: min(420px, calc(100% - 32px)); padding: 24px; border: 1px solid #e4ddd3; border-radius: 20px; background: #faf8f5; color: #2c221e; box-shadow: 0 20px 80px #0003; }
+    #contact-confirmation::backdrop { background: #1c191799; }
     /* Layered panels and gentle motion inspired by the supplied reference. */
     main > section { scroll-margin-top: 88px; }
     #work {
@@ -764,6 +766,15 @@
     Back to top
   </button>
 
+  <dialog id="contact-confirmation" aria-labelledby="contact-confirm-title" aria-describedby="contact-confirm-description">
+    <h2 id="contact-confirm-title" class="font-headline text-xl font-semibold mb-3">Open Gmail?</h2>
+    <p id="contact-confirm-description" class="text-sm leading-relaxed text-wood-walnut/75 mb-6">Gmail will open in a new tab with your message ready to review. Your portfolio page and project details will stay here. You may need to sign in to Gmail.</p>
+    <div class="flex flex-wrap justify-end gap-3">
+      <form method="dialog"><button class="px-4 py-3 rounded-full border border-wood-border text-sm font-semibold" autofocus>Stay here</button></form>
+      <a id="contact-confirm-open" href="https://mail.google.com/" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-full bg-wood-walnut text-wood-cream text-sm font-semibold">Open Gmail</a>
+    </div>
+  </dialog>
+
   <!-- Interactive Carousel & Mobile Menu Logic -->
   <script>
     // Reveal content in small groups as it enters the viewport.
@@ -868,6 +879,21 @@
       });
     });
 
+    const contactConfirmation = document.getElementById('contact-confirmation');
+    const contactConfirmOpen = document.getElementById('contact-confirm-open');
+    const confirmGmail = url => {
+      contactConfirmOpen.href = url;
+      contactConfirmation.showModal();
+    };
+    contactConfirmOpen.addEventListener('click', () => contactConfirmation.close());
+    document.querySelectorAll('a[href^="https://mail.google.com/"]').forEach(link => {
+      if (link === contactConfirmOpen) return;
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        confirmGmail(link.href);
+      });
+    });
+
     // Prepare the quote in the selected contact app; the visitor sends it.
     document.getElementById('quote-form').addEventListener('submit', event => {
       event.preventDefault();
@@ -881,7 +907,7 @@
       const body = `Name: ${name}\nProject type: ${projectType}\n\n${fields.get('details').trim()}`;
       const delivery = fields.get('delivery');
       if (delivery === 'gmail') {
-        window.location.href = `https://mail.google.com/mail/?view=cm&fs=1&to=villamorstephen903%40gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        confirmGmail(`https://mail.google.com/mail/?view=cm&fs=1&to=villamorstephen903%40gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
       } else if (delivery === 'sms') {
         const separator = /iPad|iPhone|iPod/.test(navigator.userAgent) ? '&' : '?';
         window.location.href = `sms:+639703652552${separator}body=${encodeURIComponent(subject + '\n\n' + body)}`;
