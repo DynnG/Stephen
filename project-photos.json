@@ -1,17 +1,7 @@
 [
   {
     "title": "Custom cabinetry",
-    "photos": [
-      {
-        "src": "/projects/cabinetry/sample-1.jpg",
-        "alt": "Sample living room with wood side and coffee tables"
-      },
-      {
-        "src": "/projects/cabinetry/sample-2.jpg",
-        "alt": "Sample living room with a sectional sofa"
-      }
-    ],
-    "sample": true
+    "photos": []
   },
   {
     "title": "Solid timber dining",
