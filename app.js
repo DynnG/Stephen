@@ -181,23 +181,3 @@
       });
     }
 
-    // Carousel desktop & keyboard navigation
-    const carousel = document.getElementById('project-carousel');
-    const prevBtn = document.getElementById('carousel-prev');
-    const nextBtn = document.getElementById('carousel-next');
-
-    if (carousel && prevBtn && nextBtn) {
-      const getScrollStep = () => {
-        const firstItem = carousel.querySelector('.snap-item');
-        return firstItem ? firstItem.offsetWidth + 16 : 380;
-      };
-
-      prevBtn.addEventListener('click', () => {
-        carousel.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
-      });
-
-      nextBtn.addEventListener('click', () => {
-        carousel.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
-      });
-    }
-  

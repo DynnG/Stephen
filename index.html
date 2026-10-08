@@ -100,183 +100,67 @@
       </div>
     </section>
 
-    <!-- 3. SELECTED WORK (CENTERPIECE OF PORTFOLIO) -->
-    <section class="w-full py-12 bg-wood-surface/60 border-y border-wood-border" id="work">
-      <div class="px-4 sm:px-6 max-w-5xl mx-auto mb-6">
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-          <div>
-            <div class="flex items-center gap-1.5 text-wood-amber font-mono text-[11px] font-semibold uppercase tracking-wider mb-1">
-              <span class="material-symbols-outlined text-[15px]">table_restaurant</span>
-              <span>Portfolio Gallery</span>
-            </div>
-            <h2 class="font-headline text-2xl sm:text-3xl font-bold tracking-tight text-wood-charcoal">
-              Selected Work
-            </h2>
-          </div>
-          <div class="flex items-center justify-between sm:justify-end gap-3">
-            <p class="font-body text-xs sm:text-sm text-wood-walnut/70 max-w-xs">
-              Crafted for function, precision, and longevity. Swipe horizontally to inspect works.
-            </p>
-            <!-- Carousel Desktop Navigation Controls -->
-            <div class="hidden sm:flex items-center gap-1.5 shrink-0">
-              <button id="carousel-prev" aria-label="Previous project" class="w-9 h-9 rounded-sm bg-wood-cream border border-wood-border text-wood-walnut flex items-center justify-center hover:bg-wood-sand transition-colors active:scale-95 shadow-sm">
-                <span class="material-symbols-outlined text-lg">chevron_left</span>
-              </button>
-              <button id="carousel-next" aria-label="Next project" class="w-9 h-9 rounded-sm bg-wood-cream border border-wood-border text-wood-walnut flex items-center justify-center hover:bg-wood-sand transition-colors active:scale-95 shadow-sm">
-                <span class="material-symbols-outlined text-lg">chevron_right</span>
-              </button>
-            </div>
-          </div>
+    <!-- 3. PROJECT GALLERY -->
+    <section class="w-full py-14 sm:py-20 px-5 sm:px-6 bg-wood-surface/60 border-y border-wood-border" id="work">
+      <div class="max-w-5xl mx-auto">
+        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-8">
+          <div><p class="font-mono text-xs uppercase tracking-widest text-wood-amber mb-3">Furniture &amp; cabinetry</p><h2 class="font-headline text-3xl sm:text-4xl font-semibold tracking-tight text-wood-walnut">What could we create<br><span class="text-wood-amber">for your space?</span></h2></div>
+          <p class="font-body text-sm text-wood-walnut/70 leading-relaxed max-w-xs">Explore the kinds of pieces we can discuss. Project photos are being prepared and will be added soon.</p>
         </div>
-      </div>
-
-      <!-- Mobile Horizontal Swipeable Carousel (Snap Scrolling) -->
-      <div id="project-carousel" class="snap-carousel px-4 sm:px-6 gap-4 pb-4 max-w-5xl mx-auto">
-        <!-- Slide 1: Custom Cabinetry -->
-        <article class="snap-item w-[84vw] sm:w-[380px] bg-wood-cream rounded-md border border-wood-border p-4 shadow-sm flex flex-col justify-between" data-index="0">
-          <div>
-            <!-- Large Image Slot / Placeholder -->
-            <div class="relative w-full aspect-[4/3] rounded bg-wood-sand/60 border border-wood-border/80 flex flex-col items-center justify-center text-center p-4 overflow-hidden mb-3">
-              <!-- Joinery Line Draft Background SVG -->
-              <svg class="absolute inset-0 w-full h-full opacity-15 text-wood-walnut pointer-events-none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <pattern height="20" id="grid-artisan" patternunits="userSpaceOnUse" width="20">
-                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="currentColor" stroke-width="0.75"></path>
-                  </pattern>
-                </defs>
-                <rect fill="url(#grid-artisan)" height="100%" width="100%"></rect>
-              </svg>
-              <div class="w-12 h-12 rounded-full bg-wood-cream/80 border border-wood-amber/30 flex items-center justify-center text-wood-amber mb-2 relative z-10 shadow-sm">
-                <span class="material-symbols-outlined text-2xl">shelves</span>
-              </div>
-              <p class="font-headline font-semibold text-xs tracking-wider uppercase text-wood-charcoal relative z-10">Project Photo Coming Soon</p>
-              <span class="font-mono text-[10px] text-wood-walnut/60 mt-0.5 relative z-10">DWG // 01 • Custom Carcass Fit</span>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6" id="project-gallery">
+          <article class="min-w-0 overflow-hidden rounded-2xl bg-wood-cream border border-wood-border flex flex-col">
+            <div class="h-36 sm:h-44 bg-wood-sand/60 flex items-center justify-center relative">
+              <span class="material-symbols-outlined text-6xl text-wood-amber" aria-hidden="true">kitchen</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono uppercase tracking-wider text-wood-walnut/60">Project photo coming soon</span>
             </div>
-            <!-- Multi-Photo Pagination Dots Indicator -->
-            <div class="flex items-center justify-between mb-2">
-              <span class="font-mono text-[11px] font-semibold text-wood-amber">PROJECT 01</span>
-              <div class="flex items-center gap-1.5 text-xs text-wood-walnut/60 select-none">
-                <span class="w-2 h-2 rounded-full bg-wood-amber"></span>
-                <span class="w-2 h-2 rounded-full bg-wood-border"></span>
-                <span class="w-2 h-2 rounded-full bg-wood-border"></span>
-                <span class="w-2 h-2 rounded-full bg-wood-border"></span>
-              </div>
+            <div class="p-5 sm:p-6 flex flex-col flex-1">
+              <p class="font-mono text-[10px] uppercase tracking-widest text-wood-amber mb-2">Kitchen & storage</p>
+              <h3 class="font-headline text-xl sm:text-2xl font-semibold text-wood-walnut mb-3">Custom cabinetry</h3>
+              <p class="font-body text-sm sm:text-base text-wood-walnut/75 leading-relaxed mb-5">Storage designed around your space, with a clean fit and practical access.</p>
+              <a href="#quote-form" data-service="Cabinets" class="mt-auto pt-4 border-t border-wood-border min-h-[48px] flex items-center justify-between gap-3 font-headline text-sm font-semibold text-wood-walnut hover:text-wood-amber">Discuss a similar piece<span class="material-symbols-outlined text-xl" aria-hidden="true">arrow_forward</span></a>
             </div>
-            <h3 class="font-headline text-lg font-bold text-wood-charcoal">Custom Cabinetry</h3>
-            <p class="font-body text-xs sm:text-sm text-wood-walnut/80 mt-1 leading-snug">
-              Custom Cabinet — Built for practical storage, precise carcass alignment, and everyday utility.
-            </p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-wood-border/60 flex items-center justify-between text-[11px] font-mono text-wood-walnut/70">
-            <span>CAD &amp; SKETCHUP</span>
-            <span>CABINETRY</span>
-          </div>
-        </article>
-
-        <!-- Slide 2: Solid Timber Dining Table -->
-        <article class="snap-item w-[84vw] sm:w-[380px] bg-wood-cream rounded-md border border-wood-border p-4 shadow-sm flex flex-col justify-between" data-index="1">
-          <div>
-            <div class="relative w-full aspect-[4/3] rounded bg-wood-sand/60 border border-wood-border/80 flex flex-col items-center justify-center text-center p-4 overflow-hidden mb-3">
-              <svg class="absolute inset-0 w-full h-full opacity-15 text-wood-walnut pointer-events-none" xmlns="http://www.w3.org/2000/svg">
-                <rect fill="url(#grid-artisan)" height="100%" width="100%"></rect>
-              </svg>
-              <div class="w-12 h-12 rounded-full bg-wood-cream/80 border border-wood-amber/30 flex items-center justify-center text-wood-amber mb-2 relative z-10 shadow-sm">
-                <span class="material-symbols-outlined text-2xl">table_restaurant</span>
-              </div>
-              <p class="font-headline font-semibold text-xs tracking-wider uppercase text-wood-charcoal relative z-10">Project Photo Coming Soon</p>
-              <span class="font-mono text-[10px] text-wood-walnut/60 mt-0.5 relative z-10">DWG // 02 • Mortise &amp; Tenon</span>
+          </article>
+          <article class="min-w-0 overflow-hidden rounded-2xl bg-wood-cream border border-wood-border flex flex-col">
+            <div class="h-36 sm:h-44 bg-wood-sand/60 flex items-center justify-center relative">
+              <span class="material-symbols-outlined text-6xl text-wood-amber" aria-hidden="true">table_restaurant</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono uppercase tracking-wider text-wood-walnut/60">Project photo coming soon</span>
             </div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="font-mono text-[11px] font-semibold text-wood-amber">PROJECT 02</span>
-              <div class="flex items-center gap-1.5 text-xs text-wood-walnut/60 select-none">
-                <span class="w-2 h-2 rounded-full bg-wood-border"></span>
-                <span class="w-2 h-2 rounded-full bg-wood-amber"></span>
-                <span class="w-2 h-2 rounded-full bg-wood-border"></span>
-                <span class="w-2 h-2 rounded-full bg-wood-border"></span>
-              </div>
+            <div class="p-5 sm:p-6 flex flex-col flex-1">
+              <p class="font-mono text-[10px] uppercase tracking-widest text-wood-amber mb-2">Tables & furniture</p>
+              <h3 class="font-headline text-xl sm:text-2xl font-semibold text-wood-walnut mb-3">Solid timber dining</h3>
+              <p class="font-body text-sm sm:text-base text-wood-walnut/75 leading-relaxed mb-5">A gathering place shaped around your room and the way you entertain.</p>
+              <a href="#quote-form" data-service="Furniture" class="mt-auto pt-4 border-t border-wood-border min-h-[48px] flex items-center justify-between gap-3 font-headline text-sm font-semibold text-wood-walnut hover:text-wood-amber">Discuss a similar piece<span class="material-symbols-outlined text-xl" aria-hidden="true">arrow_forward</span></a>
             </div>
-            <h3 class="font-headline text-lg font-bold text-wood-charcoal">Solid Timber Dining</h3>
-            <p class="font-body text-xs sm:text-sm text-wood-walnut/80 mt-1 leading-snug">
-              Solid Timber Dining Table — Handcrafted joinery, solid frame balance, and durable natural oil finish.
-            </p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-wood-border/60 flex items-center justify-between text-[11px] font-mono text-wood-walnut/70">
-            <span>TIMBER JOINERY</span>
-            <span>FURNITURE</span>
-          </div>
-        </article>
-
-        <!-- Slide 3: Modular Storage Unit -->
-        <article class="snap-item w-[84vw] sm:w-[380px] bg-wood-cream rounded-md border border-wood-border p-4 shadow-sm flex flex-col justify-between" data-index="2">
-          <div>
-            <div class="relative w-full aspect-[4/3] rounded bg-wood-sand/60 border border-wood-border/80 flex flex-col items-center justify-center text-center p-4 overflow-hidden mb-3">
-              <svg class="absolute inset-0 w-full h-full opacity-15 text-wood-walnut pointer-events-none" xmlns="http://www.w3.org/2000/svg">
-                <rect fill="url(#grid-artisan)" height="100%" width="100%"></rect>
-              </svg>
-              <div class="w-12 h-12 rounded-full bg-wood-cream/80 border border-wood-amber/30 flex items-center justify-center text-wood-amber mb-2 relative z-10 shadow-sm">
-                <span class="material-symbols-outlined text-2xl">countertops</span>
-              </div>
-              <p class="font-headline font-semibold text-xs tracking-wider uppercase text-wood-charcoal relative z-10">Project Photo Coming Soon</p>
-              <span class="font-mono text-[10px] text-wood-walnut/60 mt-0.5 relative z-10">DWG // 03 • Modular Casework</span>
+          </article>
+          <article class="min-w-0 overflow-hidden rounded-2xl bg-wood-cream border border-wood-border flex flex-col">
+            <div class="h-36 sm:h-44 bg-wood-sand/60 flex items-center justify-center relative">
+              <span class="material-symbols-outlined text-6xl text-wood-amber" aria-hidden="true">shelves</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono uppercase tracking-wider text-wood-walnut/60">Project photo coming soon</span>
             </div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="font-mono text-[11px] font-semibold text-wood-amber">PROJECT 03</span>
-              <div class="flex items-center gap-1.5 text-xs text-wood-walnut/60 select-none">
-                <span class="w-2 h-2 rounded-full bg-wood-border"></span>
-                <span class="w-2 h-2 rounded-full bg-wood-border"></span>
-                <span class="w-2 h-2 rounded-full bg-wood-amber"></span>
-                <span class="w-2 h-2 rounded-full bg-wood-border"></span>
-              </div>
+            <div class="p-5 sm:p-6 flex flex-col flex-1">
+              <p class="font-mono text-[10px] uppercase tracking-widest text-wood-amber mb-2">Built-ins & shelving</p>
+              <h3 class="font-headline text-xl sm:text-2xl font-semibold text-wood-walnut mb-3">Modular storage</h3>
+              <p class="font-body text-sm sm:text-base text-wood-walnut/75 leading-relaxed mb-5">Thoughtful organization for a room that works better every day.</p>
+              <a href="#quote-form" data-service="Built-ins" class="mt-auto pt-4 border-t border-wood-border min-h-[48px] flex items-center justify-between gap-3 font-headline text-sm font-semibold text-wood-walnut hover:text-wood-amber">Discuss a similar piece<span class="material-symbols-outlined text-xl" aria-hidden="true">arrow_forward</span></a>
             </div>
-            <h3 class="font-headline text-lg font-bold text-wood-charcoal">Modular Storage Unit</h3>
-            <p class="font-body text-xs sm:text-sm text-wood-walnut/80 mt-1 leading-snug">
-              Modular Storage Unit — Precision carcass build, flush fitment, and clean edge detailing.
-            </p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-wood-border/60 flex items-center justify-between text-[11px] font-mono text-wood-walnut/70">
-            <span>MODULAR CASEWORK</span>
-            <span>STORAGE</span>
-          </div>
-        </article>
-
-        <!-- Slide 4: Workshop Utility Bench -->
-        <article class="snap-item w-[84vw] sm:w-[380px] bg-wood-cream rounded-md border border-wood-border p-4 shadow-sm flex flex-col justify-between" data-index="3">
-          <div>
-            <div class="relative w-full aspect-[4/3] rounded bg-wood-sand/60 border border-wood-border/80 flex flex-col items-center justify-center text-center p-4 overflow-hidden mb-3">
-              <svg class="absolute inset-0 w-full h-full opacity-15 text-wood-walnut pointer-events-none" xmlns="http://www.w3.org/2000/svg">
-                <rect fill="url(#grid-artisan)" height="100%" width="100%"></rect>
-              </svg>
-              <div class="w-12 h-12 rounded-full bg-wood-cream/80 border border-wood-amber/30 flex items-center justify-center text-wood-amber mb-2 relative z-10 shadow-sm">
-                <span class="material-symbols-outlined text-2xl">build</span>
-              </div>
-              <p class="font-headline font-semibold text-xs tracking-wider uppercase text-wood-charcoal relative z-10">Project Photo Coming Soon</p>
-              <span class="font-mono text-[10px] text-wood-walnut/60 mt-0.5 relative z-10">DWG // 04 • Heavy Timber Frame</span>
+          </article>
+          <article class="min-w-0 overflow-hidden rounded-2xl bg-wood-cream border border-wood-border flex flex-col">
+            <div class="h-36 sm:h-44 bg-wood-sand/60 flex items-center justify-center relative">
+              <span class="material-symbols-outlined text-6xl text-wood-amber" aria-hidden="true">carpenter</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono uppercase tracking-wider text-wood-walnut/60">Project photo coming soon</span>
             </div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="font-mono text-[11px] font-semibold text-wood-amber">PROJECT 04</span>
-              <div class="flex items-center gap-1.5 text-xs text-wood-walnut/60 select-none">
-                <span class="w-2 h-2 rounded-full bg-wood-border"></span>
-                <span class="w-2 h-2 rounded-full bg-wood-border"></span>
-                <span class="w-2 h-2 rounded-full bg-wood-border"></span>
-                <span class="w-2 h-2 rounded-full bg-wood-amber"></span>
-              </div>
+            <div class="p-5 sm:p-6 flex flex-col flex-1">
+              <p class="font-mono text-[10px] uppercase tracking-widest text-wood-amber mb-2">Custom woodwork</p>
+              <h3 class="font-headline text-xl sm:text-2xl font-semibold text-wood-walnut mb-3">Workshop utility bench</h3>
+              <p class="font-body text-sm sm:text-base text-wood-walnut/75 leading-relaxed mb-5">A practical workspace designed for the tasks you do most.</p>
+              <a href="#quote-form" data-service="Other" class="mt-auto pt-4 border-t border-wood-border min-h-[48px] flex items-center justify-between gap-3 font-headline text-sm font-semibold text-wood-walnut hover:text-wood-amber">Discuss a similar piece<span class="material-symbols-outlined text-xl" aria-hidden="true">arrow_forward</span></a>
             </div>
-            <h3 class="font-headline text-lg font-bold text-wood-charcoal">Workshop Utility Bench</h3>
-            <p class="font-body text-xs sm:text-sm text-wood-walnut/80 mt-1 leading-snug">
-              Heavy-Duty Workshop Bench — Engineered timber construction for lasting stability and heavy load-bearing.
-            </p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-wood-border/60 flex items-center justify-between text-[11px] font-mono text-wood-walnut/70">
-            <span>HEAVY TIMBER</span>
-            <span>FIXTURE</span>
-          </div>
-        </article>
-      </div>
-
-      <!-- Swipe / Navigation indicator hint for mobile screens -->
-      <div class="flex items-center justify-center gap-1.5 text-[11px] font-mono text-wood-walnut/60 mt-3 px-4 text-center">
-        <span class="material-symbols-outlined text-[15px] text-wood-amber">swipe</span>
-        <span>Swipe horizontally or use arrows to view all works</span>
+          </article>
+        </div>
+        <div class="mt-8 rounded-2xl bg-wood-walnut p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
+          <div><h3 class="font-headline text-xl font-semibold text-wood-cream mb-2">Have something else in mind?</h3><p class="font-body text-sm text-wood-cream/70">Share your idea, measurements, or inspiration. Let's talk about the possibilities.</p></div>
+          <a href="#quote-form" class="inline-flex items-center justify-center gap-2 self-start shrink-0 rounded-full px-5 py-3 min-h-[48px] bg-wood-amberLight text-wood-walnut font-headline text-sm font-semibold">Request a free quote<span class="material-symbols-outlined text-lg" aria-hidden="true">arrow_forward</span></a>
+        </div>
       </div>
     </section>
 
