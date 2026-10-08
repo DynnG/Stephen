@@ -255,3 +255,11 @@ portraitToggle.addEventListener('click', () => {
   portraitToggle.querySelector('.photo-flip-front').setAttribute('aria-hidden', String(flipped));
   portraitToggle.querySelector('.photo-flip-back').setAttribute('aria-hidden', String(!flipped));
 });
+
+const quoteDetails = document.getElementById('quote-details');
+const quoteDetailsCount = document.getElementById('quote-details-count');
+function updateDetailsCount() {
+  quoteDetailsCount.textContent = `${quoteDetails.value.length.toLocaleString('en-US')} / 3,000`;
+}
+quoteDetails.addEventListener('input', updateDetailsCount);
+updateDetailsCount();

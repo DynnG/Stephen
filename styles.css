@@ -198,3 +198,14 @@ body:has(dialog[open]) { overflow:hidden; }
 .contact-method:focus-visible { outline:2px solid #d6b896; outline-offset:4px; }
 @media(max-width:360px) { .contact-method { padding:16px; } .contact-method strong { font-size:14px; } }
 @media(prefers-reduced-motion:reduce) { .contact-method { transition:none; } }
+
+.quote-field-help { margin:-7px 0 16px; font-size:11px; color:#c1b1a5; }
+.quote-card #quote-details { margin-bottom:8px; resize:vertical; min-height:116px; scrollbar-width:thin; scrollbar-color:#a18a70 #2c221e; }
+.quote-details-meta { display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:18px; font-size:11px; color:#c1b1a5; }
+#quote-details-count { font-variant-numeric:tabular-nums; }
+#quote-details::-webkit-scrollbar { width:8px; }
+#quote-details::-webkit-scrollbar-track { background:#2c221e; border-radius:8px; }
+#quote-details::-webkit-scrollbar-thumb { background:#a18a70; border:2px solid #2c221e; border-radius:8px; }
+#quote-details::-webkit-scrollbar-thumb:hover { background:#d6b896; }
+#quote-details::-webkit-scrollbar-button { display:none; width:0; height:0; }
+#quote-details::-webkit-scrollbar-corner { background:#2c221e; }

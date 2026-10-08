@@ -383,9 +383,11 @@
             </div>
           </fieldset>
           <label for="quote-name">Your name</label>
-          <input class="quote-input" id="quote-name" name="clientName" maxlength="100" type="text" autocomplete="name" placeholder="Juan Dela Cruz" required>
+          <input class="quote-input" id="quote-name" name="clientName" aria-describedby="quote-name-limit" maxlength="100" type="text" autocomplete="name" placeholder="Juan Dela Cruz" required>
+          <p id="quote-name-limit" class="quote-field-help">Up to 100 characters</p>
           <label for="quote-details">Project details</label>
-          <textarea class="quote-input" id="quote-details" name="details" maxlength="3000" rows="3" placeholder="Size, location, budget, deadline…"></textarea>
+          <textarea class="quote-input" id="quote-details" name="details" aria-describedby="quote-details-help quote-details-count" maxlength="3000" rows="3" placeholder="Size, location, budget, deadline…"></textarea>
+          <div class="quote-details-meta"><span id="quote-details-help">Maximum 3,000 characters</span><span id="quote-details-count">0 / 3,000</span></div>
           <span id="delivery-label" class="block text-[13px] text-wood-amberLight mb-1.5">Send using</span>
           <details class="delivery-picker" id="quote-delivery">
             <summary aria-labelledby="delivery-label delivery-selected">
