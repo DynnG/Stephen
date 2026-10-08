@@ -232,51 +232,38 @@
   </header>
 
   <main class="flex-1 w-full">
-    <!-- 2. HERO SECTION -->
-    <section class="w-full px-4 sm:px-6 pt-8 pb-12 max-w-4xl mx-auto flex flex-col items-center text-center">
-      <!-- Top Craft Pill -->
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-wood-sand/80 border border-wood-border text-wood-walnut font-mono text-[11px] font-medium tracking-wide mb-5">
-        <span class="w-1.5 h-1.5 rounded-full bg-wood-amber animate-pulse"></span>
-        <span>Cebu, PH • Bespoke Woodworking</span>
-      </div>
-
-      <!-- Workshop Profile Badge -->
-      <div class="relative w-28 h-32 sm:w-32 sm:h-36 rounded-md bg-wood-surface border border-wood-border p-2 shadow-sm flex flex-col items-center justify-between mb-5 group">
-        <div class="w-full flex justify-between items-center text-[9px] font-mono text-wood-walnut/50">
-          <span>SPEC // SV</span>
-          <span class="material-symbols-outlined text-[12px] text-wood-amber">carpenter</span>
+    <!-- 2. HERO -->
+    <section class="w-full px-5 sm:px-6 py-12 sm:py-20 max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-9 md:gap-12">
+        <div>
+          <p class="font-mono text-[11px] uppercase tracking-widest text-wood-amber mb-5">Stephen Villamor · Cebu, Philippines</p>
+          <h1 class="font-headline text-4xl sm:text-5xl font-semibold tracking-tight leading-[1.1] text-wood-walnut mb-5">A better fit for<br><span class="text-wood-amber">the way you live.</span></h1>
+          <p class="font-headline text-base sm:text-lg font-medium text-wood-walnut mb-3">Furniture &amp; Cabinet Maker</p>
+          <p class="font-body text-sm sm:text-base text-wood-walnut/75 leading-relaxed max-w-md mb-7">Thoughtful furniture and custom cabinetry, shaped around your space. From a first idea to the final detail, let's create something you'll love using every day.</p>
+          <div class="flex flex-wrap items-center gap-3">
+            <a href="#work" class="inline-flex items-center justify-center gap-2 min-h-[48px] px-5 py-3 rounded-full bg-wood-walnut text-wood-cream font-headline text-sm font-semibold hover:bg-wood-charcoal transition-colors">Explore my work<span class="material-symbols-outlined text-lg" aria-hidden="true">arrow_forward</span></a>
+            <a href="#contact" class="inline-flex items-center justify-center min-h-[48px] px-5 py-3 rounded-full border border-wood-border text-wood-walnut font-headline text-sm font-semibold hover:bg-wood-sand transition-colors">Let's talk</a>
+          </div>
         </div>
-        <div class="w-full flex-1 my-1 rounded bg-wood-sand/40 border border-dashed border-wood-border flex flex-col items-center justify-center p-2 text-center overflow-hidden">
-          <span class="material-symbols-outlined text-wood-amber text-2xl mb-0.5">architecture</span>
-          <span class="font-mono text-[11px] font-semibold text-wood-walnut">TBF</span>
-          <span class="font-mono text-[9px] text-wood-walnut/60 uppercase tracking-tight">Profile Photo</span>
+        <div class="relative rounded-[24px] overflow-hidden bg-wood-sand border border-wood-border" aria-label="Illustration of custom cabinetry">
+          <svg viewBox="0 0 500 370" class="w-full h-auto" role="img" aria-labelledby="hero-art-title">
+            <title id="hero-art-title">Furniture design illustration: a warm wood cabinet in a simple interior</title>
+            <defs><linearGradient id="cabinet-wood" x2="1" y2="1"><stop stop-color="#a7825a"/><stop offset="1" stop-color="#735236"/></linearGradient></defs>
+            <rect width="500" height="370" fill="#e9e2d7"/>
+            <path d="M0 290H500V370H0Z" fill="#d8cbbc"/>
+            <ellipse cx="266" cy="308" rx="165" ry="16" fill="#2c221e" opacity=".12"/>
+            <rect x="99" y="165" width="304" height="127" rx="4" fill="url(#cabinet-wood)"/>
+            <path d="M96 161H406V170H96Z" fill="#4e3524"/>
+            <path d="M114 292V310M387 292V310" stroke="#4e3524" stroke-width="10"/>
+            <path d="M202 176V281M301 176V281M107 228H195" stroke="#503825" stroke-width="2"/>
+            <path d="M221 211V243M320 211V243M142 199H159M142 254H159" stroke="#eadbc5" stroke-width="3" stroke-linecap="round"/>
+            <rect x="127" y="78" width="78" height="64" rx="2" fill="#faf8f5" stroke="#b9a58d" stroke-width="5"/>
+            <path d="M138 130L157 100L177 122L196 93" fill="none" stroke="#9a7b56" stroke-width="3"/>
+            <path d="M348 160L341 128H370L363 160Z" fill="#faf8f5"/>
+            <path d="M355 129V93M355 111Q332 91 335 83Q353 84 355 105M355 101Q380 84 377 76Q359 80 355 97" fill="none" stroke="#76806b" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+          <div class="px-5 py-4 flex items-center justify-between gap-3 bg-wood-cream/80 border-t border-wood-border"><span class="font-headline text-sm font-medium text-wood-walnut">Made to fit. Built with care.</span><span class="font-mono text-[9px] uppercase tracking-wider text-wood-amber">Design illustration</span></div>
         </div>
-        <div class="w-full text-center">
-          <span class="font-mono text-[9px] text-wood-walnut/70 uppercase tracking-widest">Workshop Master</span>
-        </div>
-      </div>
-
-      <!-- Hero Typography -->
-      <h1 class="font-headline text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-wood-charcoal mb-2 uppercase">
-        Stephen Villamor
-      </h1>
-      <p class="font-headline text-lg sm:text-xl font-medium text-wood-amber mb-3">
-        Furniture &amp; Cabinet Maker
-      </p>
-      <p class="font-body text-wood-walnut/80 text-sm sm:text-base max-w-md mx-auto leading-relaxed mb-7">
-        Custom furniture • Cabinet making • Precision woodworking. Built for enduring structural strength and clean tactile aesthetics.
-      </p>
-
-      <!-- High-Visibility Mobile Touch CTAs (min 48px touch targets) -->
-      <div class="w-full max-w-sm flex flex-col sm:flex-row gap-3 justify-center">
-        <a class="min-h-[48px] px-6 rounded-sm bg-wood-walnut text-wood-cream font-headline text-sm font-semibold tracking-wider uppercase flex items-center justify-center gap-2 shadow-sm hover:bg-wood-charcoal active:scale-[0.98] transition-all" href="#work">
-          <span>View My Work</span>
-          <span class="material-symbols-outlined text-lg">arrow_downward</span>
-        </a>
-        <a class="min-h-[48px] px-6 rounded-sm bg-transparent border border-wood-walnut/30 text-wood-walnut font-headline text-sm font-semibold tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-wood-sand/60 active:scale-[0.98] transition-all" href="#contact">
-          <span>Contact Me</span>
-          <span class="material-symbols-outlined text-lg text-wood-amber">chat_bubble_outline</span>
-        </a>
       </div>
     </section>
 
