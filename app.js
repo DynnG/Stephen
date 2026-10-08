@@ -182,13 +182,28 @@
     }
 
 import projects from './project-photos.json';
+const photoTransitions = new WeakMap();
+function changePhoto(image, photo, title) {
+  const previous = photoTransitions.get(image);
+  if (previous) previous.cancel();
+  const apply = () => { image.src = photo.src; image.alt = photo.alt || title; };
+  if (!image.getAttribute('src') || reducedMotion.matches || !image.animate) { apply(); return; }
+  const out = image.animate([{opacity:1,transform:'translateX(0)'},{opacity:0,transform:'translateX(-10px)'}], {duration:130,easing:'ease-in',fill:'forwards'});
+  photoTransitions.set(image,out);
+  out.finished.then(() => {
+    if (photoTransitions.get(image) !== out) return;
+    apply(); out.cancel();
+    const incoming = image.animate([{opacity:0,transform:'translateX(10px)'},{opacity:1,transform:'translateX(0)'}], {duration:240,easing:'ease-out'});
+    photoTransitions.set(image,incoming);
+  }).catch(() => {});
+}
 const viewer = document.getElementById('project-viewer');
 let activeProject = null, activeIndex = 0;
 function updateViewer() {
   const photo = activeProject.photos[activeIndex];
   document.getElementById('project-viewer-title').textContent = activeProject.title;
   const image = document.getElementById('project-viewer-image');
-  image.src = photo.src; image.alt = photo.alt || activeProject.title;
+  changePhoto(image, photo, activeProject.title);
   document.getElementById('viewer-count').textContent = `${activeIndex + 1} / ${activeProject.photos.length}`;
   document.getElementById('viewer-prev').disabled = document.getElementById('viewer-next').disabled = activeProject.photos.length < 2;
 }
@@ -226,7 +241,7 @@ projects.forEach((project, index) => {
     const img = document.createElement('img'); img.src = photo.src; img.alt = ''; img.loading = 'lazy'; button.append(img);
     button.addEventListener('click',()=>select(i)); thumbnails.append(button); return button;
   });
-  function select(i) { current=i; main.src=project.photos[i].src; main.alt=project.photos[i].alt || project.title; count.textContent=`${i+1} / ${project.photos.length}`; buttons.forEach((button,j)=>button.setAttribute('aria-pressed',String(j===i))); }
+  function select(i) { current=i; changePhoto(main,project.photos[i],project.title); count.textContent=`${i+1} / ${project.photos.length}`; buttons.forEach((button,j)=>button.setAttribute('aria-pressed',String(j===i))); }
   prev.addEventListener('click',()=>select((current-1+project.photos.length)%project.photos.length));
   next.addEventListener('click',()=>select((current+1)%project.photos.length));
   open.addEventListener('click',()=>{activeProject=project;activeIndex=current;updateViewer();viewer.showModal();});
