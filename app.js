@@ -27,20 +27,11 @@
       });
     }
 
-    const topButton = document.getElementById('back-to-top');
-    topButton.addEventListener('click', () => {
-      document.querySelector('header a').focus({ preventScroll: true });
-      window.scrollTo({ top: 0, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
-    });
     const progressBar = document.querySelector('.scroll-progress');
     const sections = Array.from(document.querySelectorAll('main > section[id]'));
     const navigationLinks = document.querySelectorAll('header nav a[href^="#"]');
     let scrollFramePending = false;
     const updateScroll = () => {
-      const showTopButton = window.scrollY > 300;
-      topButton.classList.toggle('is-visible', showTopButton);
-      topButton.setAttribute('aria-hidden', String(!showTopButton));
-      topButton.tabIndex = showTopButton ? 0 : -1;
       const scrollRange = document.documentElement.scrollHeight - window.innerHeight;
       const progress = scrollRange > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollRange)) : 0;
       progressBar.style.transform = `scaleX(${progress})`;
