@@ -173,3 +173,14 @@ body:has(dialog[open]) { overflow:hidden; }
 .project-inquiry:hover span { background:#d6b896; transform:translateX(3px); }
 .project-inquiry:focus-visible { outline:2px solid #9a7b56; outline-offset:4px; }
 @media(prefers-reduced-motion:reduce) { .project-inquiry span { transition:none; } }
+
+/* A compact photo strip keeps navigation beside the images. */
+.project-thumbnails { align-items:center; gap:10px; padding:12px 0 0; }
+.project-thumbnails button { flex-basis:72px; border-radius:10px; opacity:.6; transition:opacity .2s; }
+.project-thumbnails button[aria-pressed="true"] { opacity:1; }
+.project-thumbnails button:hover { opacity:1; }
+.project-thumbnails img { width:68px; height:52px; }
+.project-details { padding-top:18px; }
+.project-details h3 { font-size:22px; }
+.project-inquiry { display:inline-flex; justify-content:center; min-height:44px; padding:10px 16px; margin-top:16px; border:1px solid #d9cfc1; border-radius:999px; font-size:13px; font-weight:500; transition:background .2s; }
+.project-inquiry:hover { background:#ece7de; }

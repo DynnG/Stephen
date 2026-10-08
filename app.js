@@ -243,7 +243,7 @@ projects.forEach((project, index) => {
   prev.addEventListener('click',()=>select((current-1+project.photos.length)%project.photos.length));
   next.addEventListener('click',()=>select((current+1)%project.photos.length));
   open.addEventListener('click',()=>{activeProject=project;activeIndex=current;updateViewer();viewer.showModal();});
-  if(project.photos.length>1) stage.after(controls,thumbnails);
+  if(project.photos.length>1) stage.after(thumbnails);
   select(0);
 });
 
