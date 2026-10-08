@@ -108,7 +108,7 @@
           <p class="font-body text-sm text-wood-walnut/70 leading-relaxed max-w-xs">A closer look at furniture and cabinetry. Project photography will be added soon.</p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6" id="project-gallery">
-          <article class="min-w-0">
+          <article class="min-w-0" data-project="0">
             <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-wood-sand/60 border border-wood-border flex items-center justify-center relative">
               <span class="material-symbols-outlined text-6xl text-wood-amber" aria-hidden="true">kitchen</span>
               <span class="absolute bottom-3 left-4 text-[10px] font-mono uppercase tracking-wider text-wood-walnut/60">Project photo coming soon</span>
@@ -118,7 +118,7 @@
               <h3 class="font-headline text-lg sm:text-xl font-semibold text-wood-walnut">Custom cabinetry</h3>
             </div>
           </article>
-          <article class="min-w-0">
+          <article class="min-w-0" data-project="1">
             <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-wood-sand/60 border border-wood-border flex items-center justify-center relative">
               <span class="material-symbols-outlined text-6xl text-wood-amber" aria-hidden="true">table_restaurant</span>
               <span class="absolute bottom-3 left-4 text-[10px] font-mono uppercase tracking-wider text-wood-walnut/60">Project photo coming soon</span>
@@ -128,7 +128,7 @@
               <h3 class="font-headline text-lg sm:text-xl font-semibold text-wood-walnut">Solid timber dining</h3>
             </div>
           </article>
-          <article class="min-w-0">
+          <article class="min-w-0" data-project="2">
             <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-wood-sand/60 border border-wood-border flex items-center justify-center relative">
               <span class="material-symbols-outlined text-6xl text-wood-amber" aria-hidden="true">shelves</span>
               <span class="absolute bottom-3 left-4 text-[10px] font-mono uppercase tracking-wider text-wood-walnut/60">Project photo coming soon</span>
@@ -138,7 +138,7 @@
               <h3 class="font-headline text-lg sm:text-xl font-semibold text-wood-walnut">Modular storage</h3>
             </div>
           </article>
-          <article class="min-w-0">
+          <article class="min-w-0" data-project="3">
             <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-wood-sand/60 border border-wood-border flex items-center justify-center relative">
               <span class="material-symbols-outlined text-6xl text-wood-amber" aria-hidden="true">carpenter</span>
               <span class="absolute bottom-3 left-4 text-[10px] font-mono uppercase tracking-wider text-wood-walnut/60">Project photo coming soon</span>
@@ -469,6 +469,11 @@
     Back to top
   </button>
 
+  <dialog id="project-viewer" aria-labelledby="project-viewer-title">
+    <div class="viewer-heading"><h2 id="project-viewer-title"></h2><form method="dialog"><button type="submit" aria-label="Close photo viewer">✕</button></form></div>
+    <img id="project-viewer-image" alt="">
+    <div class="viewer-controls"><button id="viewer-prev" type="button" aria-label="Previous photo">←</button><span id="viewer-count" aria-live="polite"></span><button id="viewer-next" type="button" aria-label="Next photo">→</button></div>
+  </dialog>
   <dialog id="contact-confirmation" aria-labelledby="contact-confirm-title" aria-describedby="contact-confirm-description">
     <h2 id="contact-confirm-title" class="font-headline text-xl font-semibold mb-3">Open Gmail?</h2>
     <p id="contact-confirm-description" class="text-sm leading-relaxed text-wood-walnut/75 mb-6">Gmail will open in a new tab with your message ready to review. Your portfolio page and project details will stay here. You may need to sign in to Gmail.</p>

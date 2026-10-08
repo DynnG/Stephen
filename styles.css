@@ -126,3 +126,15 @@
       .animate-pulse { animation: none; }
     }
   
+.project-main { display:block; width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:16px; cursor:zoom-in; }
+.project-thumbnails { display:flex; gap:8px; overflow-x:auto; padding:10px 0; }
+.project-thumbnails button { flex:0 0 64px; border:2px solid transparent; border-radius:8px; overflow:hidden; }
+.project-thumbnails button[aria-pressed="true"] { border-color:#9a7b56; }
+.project-thumbnails img { width:60px; height:48px; object-fit:cover; }
+.project-photo-controls,.viewer-controls { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:10px; font-size:13px; color:#2c221e; }
+.project-photo-controls button,.viewer-controls button,.viewer-heading button { min-width:44px; min-height:44px; border:1px solid #e4ddd3; border-radius:999px; background:#faf8f5; }
+#project-viewer { width:min(1000px,calc(100% - 24px)); max-height:90dvh; padding:16px; border:0; border-radius:20px; background:#faf8f5; }
+#project-viewer::backdrop { background:#1c1917cc; }
+.viewer-heading { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:12px; font-weight:600; }
+#project-viewer-image { width:100%; height: min(65dvh,700px); object-fit:contain; background:#ece7de; border-radius:12px; }
+.project-thumbnails button:focus-visible,.project-photo-controls button:focus-visible { outline:2px solid #9a7b56; outline-offset:2px; }

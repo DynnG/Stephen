@@ -181,3 +181,52 @@
       });
     }
 
+import projects from './project-photos.json';
+const viewer = document.getElementById('project-viewer');
+let activeProject = null, activeIndex = 0;
+function updateViewer() {
+  const photo = activeProject.photos[activeIndex];
+  document.getElementById('project-viewer-title').textContent = activeProject.title;
+  const image = document.getElementById('project-viewer-image');
+  image.src = photo.src; image.alt = photo.alt || activeProject.title;
+  document.getElementById('viewer-count').textContent = `${activeIndex + 1} / ${activeProject.photos.length}`;
+  document.getElementById('viewer-prev').disabled = document.getElementById('viewer-next').disabled = activeProject.photos.length < 2;
+}
+function stepViewer(delta) {
+  activeIndex = (activeIndex + delta + activeProject.photos.length) % activeProject.photos.length;
+  updateViewer();
+}
+document.getElementById('viewer-prev').addEventListener('click', () => stepViewer(-1));
+document.getElementById('viewer-next').addEventListener('click', () => stepViewer(1));
+viewer.addEventListener('keydown', event => {
+  if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+    event.preventDefault(); stepViewer(event.key === 'ArrowLeft' ? -1 : 1);
+  }
+});
+projects.forEach((project, index) => {
+  if (!project.photos.length) return;
+  const card = document.querySelector(`[data-project="${index}"]`);
+  const stage = card.firstElementChild;
+  stage.replaceChildren();
+  const open = document.createElement('button'); open.type = 'button'; open.className = 'w-full';
+  open.setAttribute('aria-label', `Enlarge photos of ${project.title}`);
+  const main = document.createElement('img'); main.className = 'project-main'; main.loading = 'lazy'; open.append(main); stage.append(open);
+  let current = 0;
+  const controls = document.createElement('div'); controls.className = 'project-photo-controls';
+  const prev = document.createElement('button'), next = document.createElement('button'), count = document.createElement('span');
+  prev.type = next.type = 'button'; prev.textContent = '←'; next.textContent = '→';
+  prev.setAttribute('aria-label', `Previous photo of ${project.title}`); next.setAttribute('aria-label', `Next photo of ${project.title}`); count.setAttribute('aria-live','polite');
+  controls.append(prev,count,next);
+  const thumbnails = document.createElement('div'); thumbnails.className = 'project-thumbnails';
+  const buttons = project.photos.map((photo,i) => {
+    const button = document.createElement('button'); button.type = 'button'; button.setAttribute('aria-label',`Photo ${i+1} of ${project.title}`);
+    const img = document.createElement('img'); img.src = photo.src; img.alt = ''; img.loading = 'lazy'; button.append(img);
+    button.addEventListener('click',()=>select(i)); thumbnails.append(button); return button;
+  });
+  function select(i) { current=i; main.src=project.photos[i].src; main.alt=project.photos[i].alt || project.title; count.textContent=`${i+1} / ${project.photos.length}`; buttons.forEach((button,j)=>button.setAttribute('aria-pressed',String(j===i))); }
+  prev.addEventListener('click',()=>select((current-1+project.photos.length)%project.photos.length));
+  next.addEventListener('click',()=>select((current+1)%project.photos.length));
+  open.addEventListener('click',()=>{activeProject=project;activeIndex=current;updateViewer();viewer.showModal();});
+  if(project.photos.length>1) stage.after(controls,thumbnails);
+  select(0);
+});
