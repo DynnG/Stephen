@@ -154,7 +154,11 @@
       transition-delay: var(--reveal-delay, 0ms);
     }
     .reveal-pending.is-visible { opacity: 1; transform: translateY(0); }
-    header nav a[aria-current="location"] { color: #9a7b56; }
+    header nav a[aria-current="location"] { color: #2c221e; background: #ece7de; }
+    header nav a[href="#contact"][aria-current="location"] { color: #faf8f5; background: #2c221e; }
+    header a:focus-visible, header button:focus-visible { outline: 2px solid #9a7b56; outline-offset: 3px; }
+    header { box-shadow: 0 2px 14px #2c221e06; }
+    #mobile-menu nav a { min-height: 48px; border-radius: 12px; }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto !important; }
       .snap-carousel { scroll-behavior: auto; }
@@ -167,33 +171,33 @@
 
   <!-- 1. STICKY MOBILE & DESKTOP NAVIGATION -->
   <header class="sticky top-0 z-50 pt-safe bg-wood-cream/95 backdrop-blur-md border-b border-wood-border/70 transition-all">
-    <div class="h-16 px-4 sm:px-6 max-w-5xl mx-auto flex items-center justify-between">
+    <div class="h-[72px] px-4 sm:px-6 max-w-5xl mx-auto flex items-center justify-between">
       <!-- Artisan Monogram & Name -->
       <a class="flex items-center gap-2.5 group" href="#">
-        <span class="w-9 h-9 rounded-sm bg-wood-walnut text-wood-amberLight flex items-center justify-center font-headline font-bold text-sm tracking-wider border border-wood-amber/30 group-hover:bg-wood-charcoal transition-colors shrink-0">
+        <span class="w-10 h-10 rounded-xl bg-wood-walnut text-wood-amberLight flex items-center justify-center font-headline font-bold text-sm tracking-wider shadow-sm border border-wood-amber/30 group-hover:bg-wood-charcoal transition-colors shrink-0">
           SV
         </span>
         <div class="flex flex-col">
-          <span class="font-headline font-semibold text-[14px] sm:text-[15px] tracking-tight text-wood-charcoal leading-none">Stephen Villamor</span>
-          <span class="font-mono text-[9px] sm:text-[10px] tracking-widest uppercase text-wood-amber font-medium mt-0.5">Woodcraft &amp; Joinery</span>
+          <span class="font-headline font-semibold text-[14px] sm:text-[16px] tracking-tight text-wood-charcoal leading-none">Stephen Villamor</span>
+          <span class="font-mono text-[9px] sm:text-[10px] tracking-wide text-wood-walnut/60 font-medium mt-1">Furniture &amp; Cabinet Maker</span>
         </div>
       </a>
 
       <!-- Desktop Navigation Links -->
-      <nav class="hidden md:flex items-center gap-1 sm:gap-2 text-[13px] font-headline font-medium">
-        <a class="px-2.5 py-1.5 rounded text-wood-walnut hover:text-wood-amber active:bg-wood-sand/50 transition-colors" href="#work">Work</a>
-        <a class="px-2.5 py-1.5 rounded text-wood-walnut/80 hover:text-wood-amber active:bg-wood-sand/50 transition-colors" href="#services">Services</a>
-        <a class="px-2.5 py-1.5 rounded text-wood-walnut/80 hover:text-wood-amber active:bg-wood-sand/50 transition-colors" href="#experience">Experience</a>
-        <a class="px-2.5 py-1.5 rounded text-wood-walnut/80 hover:text-wood-amber active:bg-wood-sand/50 transition-colors" href="#about">About</a>
-        <a class="ml-1 px-4 py-2 rounded-sm bg-wood-walnut text-wood-cream text-xs font-semibold tracking-wide hover:bg-wood-charcoal active:scale-95 transition-all shadow-sm" href="#contact">Contact</a>
+      <nav class="hidden md:flex items-center gap-1 text-[13px] font-headline font-medium">
+        <a class="px-3 py-2.5 rounded-full text-wood-walnut hover:text-wood-amber active:bg-wood-sand/50 transition-colors" href="#work">Work</a>
+        <a class="px-3 py-2.5 rounded-full text-wood-walnut/80 hover:text-wood-amber active:bg-wood-sand/50 transition-colors" href="#services">Services</a>
+        <a class="px-3 py-2.5 rounded-full text-wood-walnut/80 hover:text-wood-amber active:bg-wood-sand/50 transition-colors" href="#experience">Experience</a>
+        <a class="px-3 py-2.5 rounded-full text-wood-walnut/80 hover:text-wood-amber active:bg-wood-sand/50 transition-colors" href="#about">About</a>
+        <a class="ml-3 px-5 py-3 rounded-full bg-wood-walnut text-wood-cream text-xs font-semibold tracking-wide hover:bg-wood-charcoal active:scale-95 transition-all shadow-sm" href="#contact">Let's talk <span aria-hidden="true">↗</span></a>
       </nav>
 
       <!-- Mobile Fast Action & Menu Button -->
       <div class="flex items-center gap-2 md:hidden">
-        <a class="px-3 py-1.5 rounded-sm bg-wood-walnut text-wood-cream text-xs font-semibold tracking-wide hover:bg-wood-charcoal active:scale-95 transition-all" href="#contact">
+        <a class="px-3 py-2.5 rounded-full bg-wood-walnut text-wood-cream text-xs font-semibold tracking-wide hover:bg-wood-charcoal active:scale-95 transition-all" href="#contact">
           Contact
         </a>
-        <button id="mobile-menu-btn" aria-label="Toggle Navigation Menu" class="w-10 h-10 flex items-center justify-center text-wood-walnut rounded hover:bg-wood-sand/50 active:scale-95 transition-all">
+        <button id="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu" class="w-10 h-10 flex items-center justify-center text-wood-walnut rounded-full border border-wood-border hover:bg-wood-sand/50 active:scale-95 transition-all">
           <span class="material-symbols-outlined text-2xl" id="menu-icon">menu</span>
         </button>
       </div>
@@ -909,6 +913,7 @@
       mobileMenuBtn.addEventListener('click', () => {
         const isHidden = mobileMenu.classList.toggle('hidden');
         menuIcon.textContent = isHidden ? 'menu' : 'close';
+        mobileMenuBtn.setAttribute('aria-expanded', String(!isHidden));
       });
 
       // Close mobile menu when clicking a link
@@ -916,6 +921,7 @@
         link.addEventListener('click', () => {
           mobileMenu.classList.add('hidden');
           menuIcon.textContent = 'menu';
+          mobileMenuBtn.setAttribute('aria-expanded', 'false');
         });
       });
     }
