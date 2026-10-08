@@ -227,14 +227,9 @@ projects.forEach((project, index) => {
   }
   stage.replaceChildren();
   const open = document.createElement('button'); open.type = 'button'; open.className = 'w-full';
-  open.setAttribute('aria-label', `Show portfolio QR code for ${project.title}`);
-  open.className = 'photo-flip';
-  open.setAttribute('aria-pressed','false');
-  const main = document.createElement('img'); main.className = 'project-main'; main.loading = 'lazy'; const front = document.createElement('span'); front.className='photo-flip-front'; front.append(main);
-  const back = document.createElement('span'); back.className='photo-flip-back'; back.setAttribute('aria-hidden','true');
-  const qr = document.createElement('img'); qr.src='/portfolio-qr.png'; qr.alt='QR code for Stephen Villamor’s portfolio';
-  const caption = document.createElement('span'); caption.textContent='Scan to visit Stephen’s portfolio';
-  back.append(qr,caption); open.append(front,back); stage.append(open);
+  open.setAttribute('aria-label', `Enlarge photo of ${project.title}`);
+  const main = document.createElement('img'); main.className = 'project-main'; main.loading = 'lazy';
+  open.append(main); stage.append(open);
   let current = 0;
   const controls = document.createElement('div'); controls.className = 'project-photo-controls';
   const prev = document.createElement('button'), next = document.createElement('button'), count = document.createElement('span');
@@ -247,19 +242,19 @@ projects.forEach((project, index) => {
     const img = document.createElement('img'); img.src = photo.src; img.alt = ''; img.loading = 'lazy'; button.append(img);
     button.addEventListener('click',()=>select(i)); thumbnails.append(button); return button;
   });
-  function select(i) { open.classList.remove('is-flipped'); open.setAttribute('aria-pressed','false'); front.setAttribute('aria-hidden','false'); back.setAttribute('aria-hidden','true'); current=i; changePhoto(main,project.photos[i],project.title); count.textContent=`${i+1} / ${project.photos.length}`; buttons.forEach((button,j)=>button.setAttribute('aria-pressed',String(j===i))); }
+  function select(i) { current=i; changePhoto(main,project.photos[i],project.title); count.textContent=`${i+1} / ${project.photos.length}`; buttons.forEach((button,j)=>button.setAttribute('aria-pressed',String(j===i))); }
   prev.addEventListener('click',()=>select((current-1+project.photos.length)%project.photos.length));
   next.addEventListener('click',()=>select((current+1)%project.photos.length));
-  open.addEventListener('click',()=>{
-    const flipped=open.classList.toggle('is-flipped');
-    open.setAttribute('aria-pressed',String(flipped));
-    open.setAttribute('aria-label',flipped ? `Return to photo of ${project.title}` : `Show portfolio QR code for ${project.title}`);
-    front.setAttribute('aria-hidden',String(flipped)); back.setAttribute('aria-hidden',String(!flipped));
-  });
-  const enlarge=document.createElement('button'); enlarge.type='button'; enlarge.className='photo-enlarge'; enlarge.textContent='Enlarge photo';
-  enlarge.addEventListener('click',()=>{activeProject=project;activeIndex=current;updateViewer();viewer.showModal();});
-  const hint=document.createElement('p'); hint.className='text-xs text-wood-walnut/60 mt-2'; hint.textContent='Tap photo to show QR code';
-  card.append(enlarge,hint);
+  open.addEventListener('click',()=>{activeProject=project;activeIndex=current;updateViewer();viewer.showModal();});
   if(project.photos.length>1) stage.after(controls,thumbnails);
   select(0);
+});
+
+const portraitToggle = document.getElementById('portrait-qr-toggle');
+portraitToggle.addEventListener('click', () => {
+  const flipped = portraitToggle.classList.toggle('is-flipped');
+  portraitToggle.setAttribute('aria-pressed', String(flipped));
+  portraitToggle.setAttribute('aria-label', flipped ? 'Return to Stephen’s portrait' : 'Show portfolio QR code');
+  portraitToggle.querySelector('.photo-flip-front').setAttribute('aria-hidden', String(flipped));
+  portraitToggle.querySelector('.photo-flip-back').setAttribute('aria-hidden', String(!flipped));
 });

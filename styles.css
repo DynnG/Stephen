@@ -146,8 +146,6 @@
 .photo-flip-back img { height:75%; width:auto; max-width:90%; object-fit:contain; }
 .photo-flip.is-flipped .photo-flip-front { transform:rotateY(-180deg); }
 .photo-flip.is-flipped .photo-flip-back { transform:rotateY(0); }
-.photo-flip .project-main { cursor:pointer; }
-.photo-enlarge { padding:10px 0; font-size:13px; font-weight:600; color:#735236; text-decoration:underline; text-underline-offset:3px; }
 .photo-flip:focus-visible { outline:3px solid #9a7b56; outline-offset:3px; }
 @media(prefers-reduced-motion:reduce) { .photo-flip-front,.photo-flip-back { transition:none; } }
 
@@ -160,3 +158,5 @@ body:has(dialog[open]) { overflow:hidden; }
   #project-viewer { width:calc(100% - 20px); padding:12px; border-radius:16px; }
   #project-viewer-image { height:55dvh; }
 }
+
+.portrait-flip { aspect-ratio:4/5; }
