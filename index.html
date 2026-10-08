@@ -90,7 +90,7 @@
     }
     .quote-divider { display: flex; align-items: center; gap: 12px; margin: 26px 0 18px; color: #d6b896; font-size: 13px; }
     .quote-divider::before, .quote-divider::after { content: ''; flex: 1; height: 1px; background: #504039; }
-    .quote-card { background: #1c1917; border: 1px solid #504039; border-radius: 14px; padding: 20px; }
+    .quote-card { scroll-margin-top: 90px; background: #1c1917; border: 1px solid #504039; border-radius: 14px; padding: 20px; }
     .quote-card label, .quote-card legend { display: block; color: #d6b896; font-size: 13px; margin-bottom: 6px; }
     .quote-card fieldset { margin: 0 0 14px; padding: 0; border: 0; }
     .quote-options { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -449,74 +449,60 @@
       </div>
     </section>
 
-    <!-- 4. WHAT I DO (SERVICES) -->
-    <section class="w-full py-12 px-4 sm:px-6 max-w-5xl mx-auto" id="services">
-      <div class="text-center max-w-md mx-auto mb-8">
-        <div class="inline-flex items-center gap-1 text-wood-amber font-mono text-[11px] font-semibold uppercase tracking-wider mb-1">
-          <span class="material-symbols-outlined text-[15px]">handyman</span>
-          <span>Craftsman Services</span>
+    <!-- 4. SERVICES -->
+    <section class="w-full py-14 sm:py-20 px-4 sm:px-6 max-w-5xl mx-auto" id="services">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-9 sm:mb-12">
+        <div class="max-w-xl">
+          <p class="font-mono text-xs font-semibold uppercase tracking-widest text-wood-amber mb-3">Made for your everyday</p>
+          <h2 class="font-headline text-3xl sm:text-4xl font-semibold tracking-tight text-wood-walnut">Your space. Your ideas.<br><span class="text-wood-amber">Carefully crafted.</span></h2>
         </div>
-        <h2 class="font-headline text-2xl sm:text-3xl font-bold tracking-tight text-wood-charcoal">
-          What I Do
-        </h2>
-        <p class="font-body text-xs sm:text-sm text-wood-walnut/75 mt-1">
-          Tailored commissions and technical woodworking delivered with artisan rigor.
-        </p>
+        <p class="font-body text-sm sm:text-base text-wood-walnut/70 leading-relaxed max-w-xs">Furniture, cabinetry, and woodwork shaped around what you need and how you live.</p>
       </div>
-
-      <!-- 4 Clean Capability Cards -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <!-- Card 1 -->
-        <div class="p-5 rounded-md bg-wood-cream border border-wood-border/80 shadow-sm flex items-start gap-4 hover:border-wood-amber/50 transition-colors">
-          <div class="w-12 h-12 rounded bg-wood-sand/60 text-wood-amber border border-wood-amber/20 flex items-center justify-center shrink-0">
-            <span class="material-symbols-outlined text-2xl">kitchen</span>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+        <article class="rounded-2xl border bg-wood-walnut text-wood-cream border-wood-walnut p-6 sm:p-8 flex flex-col">
+          <div class="flex items-center justify-between gap-3 mb-7">
+            <span class="w-14 h-14 rounded-2xl bg-white/10 text-wood-amberLight flex items-center justify-center"><span class="material-symbols-outlined text-3xl" aria-hidden="true">kitchen</span></span>
+            <span class="font-mono text-[10px] uppercase tracking-widest text-wood-cream/75">Cabinet making</span>
           </div>
-          <div>
-            <h3 class="font-headline text-base font-bold text-wood-charcoal uppercase tracking-wide">Cabinet Making</h3>
-            <p class="font-body text-xs sm:text-sm text-wood-walnut/80 mt-1 leading-relaxed">
-              Custom cabinets and practical storage solutions engineered for architectural fit and durable utility.
-            </p>
+          <h3 class="font-headline text-2xl font-semibold tracking-tight leading-snug mb-3">Storage that fits your space.</h3>
+          <p class="font-body text-sm sm:text-base text-wood-cream/75 leading-relaxed mb-7 max-w-sm">Custom cabinets designed around your room, storage needs, and everyday routines.</p>
+          <a href="#quote-form" data-service="Cabinets" class="mt-auto pt-4 border-t border-white/15 text-wood-amberLight flex items-center justify-between gap-3 font-headline text-sm font-semibold min-h-[48px] hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-wood-amber">
+            Discuss your cabinets<span class="material-symbols-outlined text-xl" aria-hidden="true">arrow_forward</span>
+          </a>
+        </article>
+        <article class="rounded-2xl border bg-wood-surface/60 text-wood-walnut border-wood-border p-6 sm:p-8 flex flex-col">
+          <div class="flex items-center justify-between gap-3 mb-7">
+            <span class="w-14 h-14 rounded-2xl bg-wood-sand text-wood-amber flex items-center justify-center"><span class="material-symbols-outlined text-3xl" aria-hidden="true">chair</span></span>
+            <span class="font-mono text-[10px] uppercase tracking-widest text-wood-walnut/75">Furniture making</span>
           </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="p-5 rounded-md bg-wood-cream border border-wood-border/80 shadow-sm flex items-start gap-4 hover:border-wood-amber/50 transition-colors">
-          <div class="w-12 h-12 rounded bg-wood-sand/60 text-wood-amber border border-wood-amber/20 flex items-center justify-center shrink-0">
-            <span class="material-symbols-outlined text-2xl">chair</span>
+          <h3 class="font-headline text-2xl font-semibold tracking-tight leading-snug mb-3">A piece that feels like yours.</h3>
+          <p class="font-body text-sm sm:text-base text-wood-walnut/75 leading-relaxed mb-7 max-w-sm">Furniture made to suit your space and style, with thoughtful proportions and careful construction.</p>
+          <a href="#quote-form" data-service="Furniture" class="mt-auto pt-4 border-t border-wood-border text-wood-walnut flex items-center justify-between gap-3 font-headline text-sm font-semibold min-h-[48px] hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-wood-amber">
+            Plan your furniture<span class="material-symbols-outlined text-xl" aria-hidden="true">arrow_forward</span>
+          </a>
+        </article>
+        <article class="rounded-2xl border bg-wood-surface/60 text-wood-walnut border-wood-border p-6 sm:p-8 flex flex-col">
+          <div class="flex items-center justify-between gap-3 mb-7">
+            <span class="w-14 h-14 rounded-2xl bg-wood-sand text-wood-amber flex items-center justify-center"><span class="material-symbols-outlined text-3xl" aria-hidden="true">carpenter</span></span>
+            <span class="font-mono text-[10px] uppercase tracking-widest text-wood-walnut/75">Custom woodwork</span>
           </div>
-          <div>
-            <h3 class="font-headline text-base font-bold text-wood-charcoal uppercase tracking-wide">Furniture Making</h3>
-            <p class="font-body text-xs sm:text-sm text-wood-walnut/80 mt-1 leading-relaxed">
-              Bespoke furniture construction and woodworking crafted from select solid woods and fine veneers.
-            </p>
+          <h3 class="font-headline text-2xl font-semibold tracking-tight leading-snug mb-3">Your idea, carefully crafted.</h3>
+          <p class="font-body text-sm sm:text-base text-wood-walnut/75 leading-relaxed mb-7 max-w-sm">Woodwork built around your drawings, measurements, and project requirements.</p>
+          <a href="#quote-form" data-service="Built-ins" class="mt-auto pt-4 border-t border-wood-border text-wood-walnut flex items-center justify-between gap-3 font-headline text-sm font-semibold min-h-[48px] hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-wood-amber">
+            Share your idea<span class="material-symbols-outlined text-xl" aria-hidden="true">arrow_forward</span>
+          </a>
+        </article>
+        <article class="rounded-2xl border bg-wood-surface/60 text-wood-walnut border-wood-border p-6 sm:p-8 flex flex-col">
+          <div class="flex items-center justify-between gap-3 mb-7">
+            <span class="w-14 h-14 rounded-2xl bg-wood-sand text-wood-amber flex items-center justify-center"><span class="material-symbols-outlined text-3xl" aria-hidden="true">precision_manufacturing</span></span>
+            <span class="font-mono text-[10px] uppercase tracking-widest text-wood-walnut/75">Machine operation</span>
           </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="p-5 rounded-md bg-wood-cream border border-wood-border/80 shadow-sm flex items-start gap-4 hover:border-wood-amber/50 transition-colors">
-          <div class="w-12 h-12 rounded bg-wood-sand/60 text-wood-amber border border-wood-amber/20 flex items-center justify-center shrink-0">
-            <span class="material-symbols-outlined text-2xl">precision_manufacturing</span>
-          </div>
-          <div>
-            <h3 class="font-headline text-base font-bold text-wood-charcoal uppercase tracking-wide">Machine Operation</h3>
-            <p class="font-body text-xs sm:text-sm text-wood-walnut/80 mt-1 leading-relaxed">
-              Experience working with professional woodworking machinery, milling setups, and dimensioning stations.
-            </p>
-          </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="p-5 rounded-md bg-wood-cream border border-wood-border/80 shadow-sm flex items-start gap-4 hover:border-wood-amber/50 transition-colors">
-          <div class="w-12 h-12 rounded bg-wood-sand/60 text-wood-amber border border-wood-amber/20 flex items-center justify-center shrink-0">
-            <span class="material-symbols-outlined text-2xl">carpenter</span>
-          </div>
-          <div>
-            <h3 class="font-headline text-base font-bold text-wood-charcoal uppercase tracking-wide">Custom Woodwork</h3>
-            <p class="font-body text-xs sm:text-sm text-wood-walnut/80 mt-1 leading-relaxed">
-              Hands-on woodworking and custom fabrication based on client architectural specs and custom requirements.
-            </p>
-          </div>
-        </div>
+          <h3 class="font-headline text-2xl font-semibold tracking-tight leading-snug mb-3">Precision behind every piece.</h3>
+          <p class="font-body text-sm sm:text-base text-wood-walnut/75 leading-relaxed mb-7 max-w-sm">Woodworking machinery, milling, and dimensioning support for accurate parts and consistent assembly.</p>
+          <a href="#quote-form" data-service="Other" class="mt-auto pt-4 border-t border-wood-border text-wood-walnut flex items-center justify-between gap-3 font-headline text-sm font-semibold min-h-[48px] hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-wood-amber">
+            Discuss your project<span class="material-symbols-outlined text-xl" aria-hidden="true">arrow_forward</span>
+          </a>
+        </article>
       </div>
     </section>
 
@@ -857,6 +843,13 @@
     });
     deliveryPicker.addEventListener('focusout', event => {
       if (!deliveryPicker.contains(event.relatedTarget)) closeDeliveryPicker();
+    });
+
+    document.querySelectorAll('[data-service]').forEach(link => {
+      link.addEventListener('click', () => {
+        const radio = Array.from(document.querySelectorAll('input[name="projectType"]')).find(input => input.value === link.dataset.service);
+        if (radio) radio.checked = true;
+      });
     });
 
     // Prepare the quote in the selected contact app; the visitor sends it.
