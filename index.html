@@ -697,7 +697,7 @@
               <span class="material-symbols-outlined delivery-chevron delivery-symbol" aria-hidden="true">expand_more</span>
             </summary>
             <div class="delivery-menu" role="group" aria-labelledby="delivery-label">
-              <label class="delivery-choice"><span class="material-symbols-outlined delivery-symbol" aria-hidden="true">mail</span><span>Gmail<small>Compose in your Gmail account</small></span><input type="radio" name="delivery" value="gmail" data-label="Gmail" data-icon="mail" checked></label>
+              <label class="delivery-choice"><span class="material-symbols-outlined delivery-symbol" aria-hidden="true">mail</span><span>Gmail<small>Compose with Gmail</small></span><input type="radio" name="delivery" value="gmail" data-label="Gmail" data-icon="mail" checked></label>
               <label class="delivery-choice"><span class="material-symbols-outlined delivery-symbol" aria-hidden="true">alternate_email</span><span>My email app<small>Use your preferred email app</small></span><input type="radio" name="delivery" value="email" data-label="My email app" data-icon="alternate_email"></label>
               <label class="delivery-choice"><span class="material-symbols-outlined delivery-symbol" aria-hidden="true">sms</span><span>Text message (SMS)<small>Send from your phone</small></span><input type="radio" name="delivery" value="sms" data-label="Text message (SMS)" data-icon="sms"></label>
             </div>
@@ -759,6 +759,7 @@
       <form method="dialog"><button class="px-4 py-3 rounded-full border border-wood-border text-sm font-semibold" autofocus>Stay here</button></form>
       <a id="contact-confirm-open" href="https://mail.google.com/" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-full bg-wood-walnut text-wood-cream text-sm font-semibold">Open Gmail</a>
     </div>
+    <a id="contact-email-fallback" href="mailto:villamorstephen903@gmail.com" hidden class="block mt-4 text-sm text-wood-walnut underline underline-offset-4">Use my default email app instead</a>
   </dialog>
 
   <!-- Interactive Carousel & Mobile Menu Logic -->
@@ -868,10 +869,30 @@
     const contactConfirmation = document.getElementById('contact-confirmation');
     const contactConfirmOpen = document.getElementById('contact-confirm-open');
     const confirmGmail = url => {
-      contactConfirmOpen.href = url;
+      const compose = new URL(url);
+      const recipient = compose.searchParams.get('to') || 'villamorstephen903@gmail.com';
+      const subject = compose.searchParams.get('su') || '';
+      const body = compose.searchParams.get('body') || '';
+      const emailUri = `mailto:${encodeURIComponent(recipient)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const android = /Android/i.test(navigator.userAgent);
+      const mobile = android || /iPhone|iPad|iPod/i.test(navigator.userAgent);
+      contactConfirmOpen.href = android
+        ? `intent:${emailUri.slice(7)}#Intent;scheme=mailto;action=android.intent.action.SENDTO;package=com.google.android.gm;end`
+        : mobile ? emailUri : url;
+      contactConfirmOpen.target = mobile ? '_self' : '_blank';
+      document.getElementById('contact-confirm-title').textContent = mobile ? 'Open your email app?' : 'Open Gmail?';
+      contactConfirmOpen.textContent = android ? 'Open Gmail app' : mobile ? 'Open email app' : 'Open Gmail';
+      document.getElementById('contact-confirm-description').textContent = mobile
+        ? 'Your phone will be asked to open a compose message with your project details. Your portfolio and form stay here. On iPhone, your default email app handles this request.'
+        : 'Gmail will open in a new tab with your message ready to review. Your portfolio and project details will stay here.';
+      const fallback = document.getElementById('contact-email-fallback');
+      fallback.href = emailUri;
+      fallback.hidden = !mobile;
+      fallback.style.display = mobile ? 'block' : 'none';
       contactConfirmation.showModal();
     };
     contactConfirmOpen.addEventListener('click', () => contactConfirmation.close());
+    document.getElementById('contact-email-fallback').addEventListener('click', () => contactConfirmation.close());
     document.querySelectorAll('a[href^="https://mail.google.com/"]').forEach(link => {
       if (link === contactConfirmOpen) return;
       link.addEventListener('click', event => {
