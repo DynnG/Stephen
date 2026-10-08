@@ -150,3 +150,13 @@
 .photo-enlarge { padding:10px 0; font-size:13px; font-weight:600; color:#735236; text-decoration:underline; text-underline-offset:3px; }
 .photo-flip:focus-visible { outline:3px solid #9a7b56; outline-offset:3px; }
 @media(prefers-reduced-motion:reduce) { .photo-flip-front,.photo-flip-back { transition:none; } }
+
+/* Center native dialogs after the CSS reset. */
+#project-viewer, #contact-confirmation { position:fixed; inset:0; margin:auto; }
+#project-viewer { max-width:1000px; max-height:calc(100dvh - 32px); overflow:auto; }
+#project-viewer-image { height:min(62dvh,650px); }
+body:has(dialog[open]) { overflow:hidden; }
+@media(max-width:640px) {
+  #project-viewer { width:calc(100% - 20px); padding:12px; border-radius:16px; }
+  #project-viewer-image { height:55dvh; }
+}
