@@ -88,6 +88,25 @@
       min-height: 48px;
       min-width: 48px;
     }
+    .quote-divider { display: flex; align-items: center; gap: 12px; margin: 26px 0 18px; color: #d6b896; font-size: 13px; }
+    .quote-divider::before, .quote-divider::after { content: ''; flex: 1; height: 1px; background: #504039; }
+    .quote-card { background: #1c1917; border: 1px solid #504039; border-radius: 14px; padding: 20px; }
+    .quote-card label, .quote-card legend { display: block; color: #d6b896; font-size: 13px; margin-bottom: 6px; }
+    .quote-card fieldset { margin: 0 0 14px; padding: 0; border: 0; }
+    .quote-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .quote-option { position: relative; }
+    .quote-option input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .quote-option label { margin: 0; padding: 7px 14px; border: 1px solid #504039; border-radius: 999px; color: #faf8f5; cursor: pointer; }
+    .quote-option input:checked + label { background: #d6b896; color: #1c1917; border-color: #d6b896; }
+    .quote-option input:focus-visible + label { outline: 2px solid #d6b896; outline-offset: 3px; }
+    .quote-card .quote-input { display: block; width: 100%; background: #2c221e; color: #faf8f5; border: 1px solid #504039; border-radius: 8px; padding: 12px; margin-bottom: 14px; font: inherit; }
+    .quote-input::placeholder { color: #a99a90; }
+    .quote-input:focus-visible { outline: 2px solid #d6b896; outline-offset: 2px; }
+    .quote-card textarea { resize: vertical; }
+    .quote-submit { width: 100%; padding: 15px; border-radius: 10px; background: #d6b896; color: #1c1917; font-size: 16px; font-weight: 700; cursor: pointer; }
+    .quote-submit:hover { background: #ece0ce; }
+    .quote-submit:focus-visible { outline: 2px solid #d6b896; outline-offset: 3px; }
+
     /* Layered panels and gentle motion inspired by the supplied reference. */
     main > section { scroll-margin-top: 88px; }
     #work {
@@ -730,6 +749,27 @@
         </a>
       </div>
 
+      <div class="max-w-md mx-auto mb-8">
+        <div class="quote-divider">or send details now</div>
+        <form id="quote-form" class="quote-card">
+          <fieldset>
+            <legend>What do you need?</legend>
+            <div class="quote-options">
+              <div class="quote-option"><input id="quote-cabinets" type="radio" name="projectType" value="Cabinets" checked><label for="quote-cabinets">Cabinets</label></div>
+              <div class="quote-option"><input id="quote-furniture" type="radio" name="projectType" value="Furniture"><label for="quote-furniture">Furniture</label></div>
+              <div class="quote-option"><input id="quote-built-ins" type="radio" name="projectType" value="Built-ins"><label for="quote-built-ins">Built-ins</label></div>
+              <div class="quote-option"><input id="quote-other" type="radio" name="projectType" value="Other"><label for="quote-other">Other</label></div>
+            </div>
+          </fieldset>
+          <label for="quote-name">Your name</label>
+          <input class="quote-input" id="quote-name" name="clientName" type="text" autocomplete="name" placeholder="Juan Dela Cruz" required>
+          <label for="quote-details">Project details</label>
+          <textarea class="quote-input" id="quote-details" name="details" rows="3" placeholder="Size, location, budget, deadline…"></textarea>
+          <button class="quote-submit" type="submit">Request my free quote</button>
+          <p class="text-xs text-wood-cream/60 mt-3">Opens your email app with your project details ready to send.</p>
+        </form>
+      </div>
+
       <!-- Clean Directory Details Listing -->
       <div class="max-w-md mx-auto pt-6 border-t border-white/10 space-y-2.5 font-mono text-xs text-wood-cream/75">
         <div class="flex justify-between items-center">
@@ -828,6 +868,21 @@
     window.addEventListener('resize', scheduleScrollUpdate);
     window.addEventListener('load', scheduleScrollUpdate);
     updateScroll();
+
+    // Prepare the quote in the visitor's email app; they send it themselves.
+    document.getElementById('quote-form').addEventListener('submit', event => {
+      event.preventDefault();
+      const fields = new FormData(event.currentTarget);
+      const name = fields.get('clientName').trim();
+      const nameInput = document.getElementById('quote-name');
+      nameInput.setCustomValidity(name ? '' : 'Please enter your name.');
+      if (!nameInput.reportValidity()) return;
+      const projectType = fields.get('projectType');
+      const subject = `Quote request: ${projectType}`;
+      const body = `Name: ${name}\nProject type: ${projectType}\n\n${fields.get('details').trim()}`;
+      window.location.href = `mailto:villamorstephen903@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+    document.getElementById('quote-name').addEventListener('input', event => event.target.setCustomValidity(''));
 
     // Mobile navigation toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
