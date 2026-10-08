@@ -106,6 +106,21 @@
     .quote-submit { width: 100%; padding: 15px; border-radius: 10px; background: #d6b896; color: #1c1917; font-size: 16px; font-weight: 700; cursor: pointer; }
     .quote-submit:hover { background: #ece0ce; }
     .quote-submit:focus-visible { outline: 2px solid #d6b896; outline-offset: 3px; }
+    .delivery-picker { position: relative; margin-bottom: 14px; }
+    .delivery-picker summary { display: flex; align-items: center; gap: 12px; padding: 14px; background: #2c221e; border: 1px solid #504039; border-radius: 10px; cursor: pointer; list-style: none; color: #faf8f5; }
+    .delivery-picker summary::-webkit-details-marker { display: none; }
+    .delivery-picker summary:focus-visible { outline: 2px solid #d6b896; outline-offset: 3px; }
+    .delivery-picker[open] summary { border-color: #d6b896; }
+    .delivery-picker .delivery-chevron { margin-left: auto; transition: transform .2s; }
+    .delivery-picker[open] .delivery-chevron { transform: rotate(180deg); }
+    .delivery-menu { position: absolute; top: calc(100% + 8px); left: 0; right: 0; z-index: 20; padding: 6px; background: #231c18; border: 1px solid #675246; border-radius: 12px; box-shadow: 0 12px 28px #0006; }
+    .quote-card .delivery-choice { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 8px; margin: 0; cursor: pointer; color: #faf8f5; }
+    .delivery-choice:hover { background: #3a2e26; }
+    .delivery-choice:has(input:checked) { background: #3b3026; }
+    .delivery-choice:focus-within { outline: 2px solid #d6b896; outline-offset: -2px; }
+    .delivery-choice input { accent-color: #d6b896; margin-left: auto; width: 16px; height: 16px; flex-shrink: 0; }
+    .delivery-symbol { color: #d6b896; font-size: 22px; }
+    .delivery-choice small { display: block; font-size: 11px; color: #bca99a; margin-top: 2px; }
 
     /* Layered panels and gentle motion inspired by the supplied reference. */
     main > section { scroll-margin-top: 88px; }
@@ -770,12 +785,19 @@
           <input class="quote-input" id="quote-name" name="clientName" type="text" autocomplete="name" placeholder="Juan Dela Cruz" required>
           <label for="quote-details">Project details</label>
           <textarea class="quote-input" id="quote-details" name="details" rows="3" placeholder="Size, location, budget, deadline…"></textarea>
-          <label for="quote-delivery">Send using</label>
-          <select class="quote-input" id="quote-delivery" name="delivery">
-            <option value="gmail">Gmail</option>
-            <option value="email">My email app</option>
-            <option value="sms">Text message (SMS)</option>
-          </select>
+          <span id="delivery-label" class="block text-[13px] text-wood-amberLight mb-1.5">Send using</span>
+          <details class="delivery-picker" id="quote-delivery">
+            <summary aria-labelledby="delivery-label delivery-selected">
+              <span id="delivery-icon" class="material-symbols-outlined delivery-symbol" aria-hidden="true">mail</span>
+              <span id="delivery-selected">Gmail</span>
+              <span class="material-symbols-outlined delivery-chevron delivery-symbol" aria-hidden="true">expand_more</span>
+            </summary>
+            <div class="delivery-menu" role="group" aria-labelledby="delivery-label">
+              <label class="delivery-choice"><span class="material-symbols-outlined delivery-symbol" aria-hidden="true">mail</span><span>Gmail<small>Compose in your Gmail account</small></span><input type="radio" name="delivery" value="gmail" data-label="Gmail" data-icon="mail" checked></label>
+              <label class="delivery-choice"><span class="material-symbols-outlined delivery-symbol" aria-hidden="true">alternate_email</span><span>My email app<small>Use your preferred email app</small></span><input type="radio" name="delivery" value="email" data-label="My email app" data-icon="alternate_email"></label>
+              <label class="delivery-choice"><span class="material-symbols-outlined delivery-symbol" aria-hidden="true">sms</span><span>Text message (SMS)<small>Send from your phone</small></span><input type="radio" name="delivery" value="sms" data-label="Text message (SMS)" data-icon="sms"></label>
+            </div>
+          </details>
           <button class="quote-submit" type="submit">Request my free quote</button>
           <p class="text-xs text-wood-cream/60 mt-3">Opens your selected app with your details ready. Review and send your message there.</p>
         </form>
@@ -875,6 +897,35 @@
     window.addEventListener('resize', scheduleScrollUpdate);
     window.addEventListener('load', scheduleScrollUpdate);
     updateScroll();
+
+    const deliveryPicker = document.getElementById('quote-delivery');
+    const closeDeliveryPicker = (restoreFocus = false) => {
+      deliveryPicker.open = false;
+      if (restoreFocus) deliveryPicker.querySelector('summary').focus();
+    };
+    deliveryPicker.addEventListener('change', event => {
+      if (event.target.name !== 'delivery') return;
+      document.getElementById('delivery-selected').textContent = event.target.dataset.label;
+      document.getElementById('delivery-icon').textContent = event.target.dataset.icon;
+    });
+    deliveryPicker.querySelectorAll('input').forEach(input => {
+      input.addEventListener('click', () => closeDeliveryPicker(true));
+      input.addEventListener('keydown', event => {
+        if (event.key === 'Enter') {
+          event.preventDefault();
+          closeDeliveryPicker(true);
+        }
+      });
+    });
+    deliveryPicker.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeDeliveryPicker(true);
+    });
+    document.addEventListener('click', event => {
+      if (!deliveryPicker.contains(event.target)) closeDeliveryPicker();
+    });
+    deliveryPicker.addEventListener('focusout', event => {
+      if (!deliveryPicker.contains(event.relatedTarget)) closeDeliveryPicker();
+    });
 
     // Prepare the quote in the selected contact app; the visitor sends it.
     document.getElementById('quote-form').addEventListener('submit', event => {
