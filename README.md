@@ -1,76 +1,55 @@
-# Stephen Villamor — Portfolio Website
+# Stephen Villamor — Portfolio
 
-A mobile-first portfolio website for **Stephen Villamor**, Furniture & Cabinet Maker based in Cebu, Philippines.
+Responsive portfolio for Stephen Villamor, Furniture & Cabinet Maker in Cebu.
+Built with HTML, CSS, JavaScript, Tailwind CSS, and Vite.
 
-Designed using **Google Stitch** as the visual source of truth, featuring an artisan timber aesthetic, mobile swipeable project showcase, technical capabilities catalog, and 1-tap commission contact channels.
+- Website: https://stephen-villamor.vercel.app/
+- Repository: https://github.com/DynnG/Stephen
 
----
+## Run locally
 
-## 🛠️ Tech Stack & Architecture
+Install Node.js with npm, then run:
 
-- **HTML5 & Modern CSS**: Pure semantic markup, responsive viewport layout, safe-area inset support for modern smartphones (iPhone dynamic island & Android notch).
-- **Tailwind CSS**: Custom artisan palette (`wood-charcoal`, `wood-walnut`, `wood-amber`, `wood-sand`, `wood-cream`, etc.).
-- **Google Fonts**:
-  - `Space Grotesk` (Headlines & branding)
-  - `Hanken Grotesk` (Body & reading)
-  - `JetBrains Mono` (Technical specs, badges, and tools)
-- **Material Symbols Outlined**: Google iconography for woodworking and craft tools.
-- **Swipeable Carousel**: Native CSS snap carousel (`scroll-snap-type: x mandatory`) with touch swipe support on smartphones and desktop arrow navigation.
-
----
-
-## 🚀 How to Run Locally
-
-You can run this project in any of the following ways:
-
-### Option 1: Double-click / Open in Browser (Zero Install)
-Simply double-click `index.html` or open it with your web browser (Chrome, Edge, Safari, Firefox). No build step required!
-
-### Option 2: Using Vite Dev Server
-```bash
-npm install
+```sh
+npm ci
 npm run dev
 ```
 
-### Option 3: Using Python Built-in Server
-```bash
-python -m http.server 3000
+Open the local URL printed by Vite. Use the development server rather than opening `index.html` directly.
+
+## Build and preview
+
+```sh
+npm run build
+npm run preview
 ```
-Then navigate to `http://localhost:3000`.
 
----
+The production files are generated in `dist/`.
 
-## 📸 Replacing Project Placeholders with Real Photos
+## Update content
 
-When project photos are ready:
+- `index.html`: headings, services, education, FAQ, and contact information.
+- `styles.css`: custom layout and styling; `tailwind.config.cjs`: theme settings.
+- `app.js`: gallery, portrait QR flip, navigation, and quote/contact behavior. When changing email, phone, or Messenger details, update this file too.
+- `assets/images/`: Stephen’s portrait and logos.
+- `public/portfolio-qr.png`: QR code. Replace it if the portfolio URL changes.
 
-1. Save your photos into the `assets/images/` directory:
-   - `assets/images/project-01.jpg` (Custom Cabinetry)
-   - `assets/images/project-02.jpg` (Solid Timber Dining Table)
-   - `assets/images/project-03.jpg` (Modular Storage Unit)
-   - `assets/images/project-04.jpg` (Workshop Utility Bench)
-   - `assets/images/profile.jpg` (Workshop Profile Photo)
+### Add project photos
 
-2. Open `index.html` and replace the placeholder inside any project card:
-   ```html
-   <!-- Replace the placeholder <div> with: -->
-   <img 
-     src="assets/images/project-01.jpg" 
-     alt="Custom Cabinetry" 
-     class="w-full aspect-[4/3] object-cover rounded border border-wood-border/80 mb-3"
-     loading="lazy"
-   />
-   ```
+Save photos in `public/projects/`, then add entries to the corresponding project's `photos` array in `project-photos.json`:
 
----
+```json
+{"src": "/projects/cabinetry/front.jpg", "alt": "Front view of the completed cabinet"}
+```
 
-## 📱 Mobile-First Breakpoint Testing
+Paths omit `public/`. Multiple entries enable thumbnails and the enlarged viewer. An empty array displays a placeholder. Keep project order aligned with `data-project` cards in `index.html`; update titles in both files.
 
-Optimized and verified across:
-- **360px** (Compact Android phones)
-- **390px** (iPhone standard)
-- **430px** (iPhone Pro Max / Android flagships)
-- **768px** (Tablets)
-- **1024px+** (Laptops & Desktops)
+## Deploy and hand over
 
-Touch targets are strictly sized at a minimum of **48px - 52px** height for comfortable thumb tapping.
+In Vercel, connect the GitHub repository, select Vite, use `npm run build`, and set the output directory to `dist`. Alternatively, after signing in and linking the correct project, run `npx vercel --prod`.
+
+Give the client GitHub and Vercel ownership or access separately. Do not share passwords or commit `.env` files or credentials. The website uses a Vercel subdomain; paid domain and hosting costs are separate. Deployment limits can delay publishing updates—confirm the live site after each deployment.
+
+## Contact and privacy
+
+The quote form opens an email or SMS draft; the visitor reviews and sends it. Attach photos in the chosen email app or Messenger. There is no backend, automatic message sending, or portfolio storage of visitor details. External app behavior depends on the device and installed apps; test it on the client's phone. See `SECURITY-REVIEW.md` for the review scope and privacy limitations.
