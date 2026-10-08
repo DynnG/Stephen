@@ -207,6 +207,9 @@ projects.forEach((project, index) => {
   if (!project.photos.length) return;
   const card = document.querySelector(`[data-project="${index}"]`);
   const stage = card.firstElementChild;
+  if (project.sample) {
+    const note = document.createElement('p'); note.className = 'font-body text-xs text-wood-amber mt-2'; note.textContent = 'Sample images for gallery preview'; card.append(note);
+  }
   stage.replaceChildren();
   const open = document.createElement('button'); open.type = 'button'; open.className = 'w-full';
   open.setAttribute('aria-label', `Enlarge photos of ${project.title}`);
