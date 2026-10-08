@@ -263,3 +263,10 @@ function updateDetailsCount() {
 }
 quoteDetails.addEventListener('input', updateDetailsCount);
 updateDetailsCount();
+
+const messengerContact = document.getElementById('messenger-contact');
+const mobileMessenger = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+  || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+if (!mobileMessenger) {
+  messengerContact.href = 'https://www.facebook.com/messages/t/stephen.villamor.811577';
+}
