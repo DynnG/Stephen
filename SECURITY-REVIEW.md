@@ -21,3 +21,16 @@ Scope: local source, dependency audit, public HTTP headers, and build output. Th
 - Google Fonts requests still reach a third party.
 - GitHub/Vercel account MFA, access controls, and mobile app delivery were not assessed.
 - No real email, text, or call was sent during review.
+
+## Follow-up review after UI and contact changes
+
+Rechecked on 8 October 2026:
+- npm audit completed successfully: 0 known vulnerabilities across 117 dependencies.
+- Production response on stephen-villamor.vercel.app confirms CSP, HSTS, X-Content-Type-Options, X-Frame-Options, Referrer-Policy, and Permissions-Policy are active.
+- No credential-pattern matches or tracked environment files were found in the current tracked files. Git history was not scanned.
+- No HTML injection sinks (innerHTML, outerHTML, document.write, eval) were found in the application JavaScript. Visitor fields are URI-encoded for fixed email/SMS destinations; generated captions use textContent.
+- External new-tab links retain noopener and noreferrer. Messenger destinations are fixed, with mobile and desktop variants.
+- Quote fields retain maximum lengths (100 and 3,000). Visitor details are not stored by the portfolio; compose URLs can be visible to the chosen provider and browser history.
+- No critical or high-severity issue identified within this review. No application security changes were needed.
+
+Limits: no authenticated Facebook/Gmail app tests, account/MFA review, Git-history secret scan, or penetration test. An external m.me certificate error cannot be repaired through portfolio code; certificate warnings must not be bypassed.
