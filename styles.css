@@ -253,3 +253,10 @@ footer { padding-bottom:32px; }
 .profile-card.is-flipped .photo-flip-front { transform:none; }
 .profile-card.is-flipped .photo-flip-back { transform:rotateY(180deg); }
 @media(prefers-reduced-motion:reduce) { .profile-card-inner { transition:none; } }
+
+/* Fine paper grain adds warmth without competing with project photography. */
+body, main > section:not(#contact) {
+  background-image:url('/paper-grain.svg');
+  background-repeat:repeat;
+  background-size:180px 180px;
+}
