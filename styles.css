@@ -241,3 +241,15 @@ footer { padding-bottom:32px; }
 .qualifications-link:hover { background:#ece7de; border-color:#b9a78e; }
 .qualifications-format { flex-shrink:0; font-size:10px; letter-spacing:.05em; padding-left:14px; border-left:1px solid #ded4c6; color:#776e65; text-decoration:none; }
 .qualifications-link:focus-visible { outline:2px solid #9a7b56; outline-offset:4px; }
+
+.profile-card.photo-flip { max-width:384px; margin-inline:auto; aspect-ratio:auto; background:transparent; text-align:center; border-radius:24px; }
+.profile-card-inner { display:block; position:relative; transform-style:preserve-3d; transition:transform .65s cubic-bezier(.2,.7,.2,1); }
+.profile-card .photo-flip-front { position:relative; display:block; transform:none; }
+.profile-card .photo-flip-front,.profile-card .photo-flip-back { border-radius:24px; border:1px solid #e4ddd3; transition:none; backface-visibility:hidden; }
+.profile-card-front img { display:block; }
+.profile-card .profile-card-back { transform:rotateY(180deg); background:#faf8f5; padding:28px; gap:12px; }
+.profile-card .profile-card-back img { width:100%; max-width:280px; height:auto; aspect-ratio:1; margin-block:8px; object-fit:contain; }
+.profile-card.is-flipped .profile-card-inner { transform:rotateY(180deg); }
+.profile-card.is-flipped .photo-flip-front { transform:none; }
+.profile-card.is-flipped .photo-flip-back { transform:rotateY(180deg); }
+@media(prefers-reduced-motion:reduce) { .profile-card-inner { transition:none; } }
