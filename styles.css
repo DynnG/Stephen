@@ -256,7 +256,7 @@ footer { padding-bottom:32px; }
 
 /* Fine paper grain adds warmth without competing with project photography. */
 body, main > section:not(#contact) {
-  background-image:url('/paper-grain.svg');
+  background-image:url('/paper-grain.svg?v=2');
   background-repeat:repeat;
   background-size:180px 180px;
 }
